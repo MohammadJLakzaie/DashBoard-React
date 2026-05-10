@@ -1,10 +1,18 @@
 export default function AuthLayout () {
     return(
         <>
-        <div>
-           <div className="min-h-screen flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-  <div className="w-full max-w-md bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-300 hover:shadow-2xl">
-    <div className="px-6 py-8 sm:px-8 sm:py-10">
+        <div  style={{ 
+    backgroundImage: "url('src/assets/Auth/Frame (3).svg')",
+    backgroundSize: "auto",        // or "contain", "auto"
+    backgroundPosition: "start",   // adjust as needed
+    backgroundRepeat: "no-repeat"
+  }}>
+
+
+          <div className=" w-2/3 mx-auto"   >
+           <div className="min-h-screen flex items-center justify-end px-10 py-12 sm:px-6 lg:px-8">
+  <div className="w-full max-w-md bg-white/75 rounded-2xl shadow-card  overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="px-20` py-8 sm:px-8 sm:py-10">
       <div className="flex justify-start items-center gap-2 mb-6">
         <div className="flex h-9 w-9 items-center justify-center rounded-xl  from-indigo-500 to-indigo-700 shadow-md">
           <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -76,6 +84,7 @@ export default function AuthLayout () {
     </div>
   </div>
 </div>
+        </div>
         </div>
         </>
     )

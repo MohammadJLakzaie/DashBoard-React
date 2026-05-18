@@ -1,4 +1,16 @@
+import { Routes, Route,Link  } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 export default function AuthLayout() {
+  // <Routes>
+  //   <Route path="/A" element={<Home />} />
+  // </Routes>
+ const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    
+    navigate('/Home');
+  };
+
   return (
     <div
       className="min-h-screen   bg-no-repeat"
@@ -43,7 +55,7 @@ export default function AuthLayout() {
             </div>
 
             {/* Form */}
-            <form id="signinForm" className="space-y-6" action="#" method="POST">
+            <form id="signinForm" className="space-y-6"  method="POST">
               <div>
                 <label
                   htmlFor="company-id"
@@ -104,7 +116,8 @@ export default function AuthLayout() {
                   type="submit"
                   className="group relative w-full flex justify-center py-3 px-4 mt-2 border border-transparent text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"
                 >
-                  Sign In
+                  <button type="button" onClick={handleSignIn}>Sign In</button>
+                  
                 </button>
               </div>
             </form>

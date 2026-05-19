@@ -1,4 +1,4 @@
-import { Routes, Route,Link  } from "react-router-dom";
+
 import { useNavigate } from 'react-router-dom';
 export default function AuthLayout() {
   // <Routes>
@@ -33,8 +33,8 @@ export default function AuthLayout() {
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
+                  strokeLinejoin="round">
+                    
                   <path d="M12 2L2 7l10 5 10-5-10-5z" />
                   <path d="M2 17l10 5 10-5" />
                   <path d="M2 12l10 5 10-5" />
@@ -106,19 +106,16 @@ export default function AuthLayout() {
                 <label
                   htmlFor="remember-me"
                   className="text-sm font-medium text-gray-700 cursor-pointer select-none"
-                >
-                  Remember Me
+                > Remember Me
                 </label>
               </div>
 
               <div>
                 <button
-                  type="submit"
+                  type="button"
                   className="group relative w-full flex justify-center py-3 px-4 mt-2 border border-transparent text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"
-                >
-                  <button type="button" onClick={handleSignIn}>Sign In</button>
-                  
-                </button>
+                  onClick={handleSignIn}
+                >Sign In</button>
               </div>
             </form>
           </div>

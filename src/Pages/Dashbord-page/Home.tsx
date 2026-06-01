@@ -4,18 +4,22 @@ import { Routes, Route, Link } from 'react-router-dom';
 export default function Home() {
     return (
         <div>
+          {/* this is start the navbar */}
                <nav className=' mx-auto bg-blue-800 py-4'>
         <div className='justify-center mx-auto flex flex-row gap-4'>
           <Link to="/Home" className="text-white">Home</Link>
         <Link to="/about" className="text-white">About</Link>
         <Link to="/profile/john" className="text-white">John'sProfile</Link>
         </div>
-        
       </nav>
+      {/* end of navbar */}
+
+
   <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-6 md:py-8">
     
-    
+    {/* this is MY TASK bar */}
     <div className="mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+
       <div>
         <div className="flex items-center gap-2">
           <div className="h-8 w-1.5 rounded-full bg-indigo-500"></div>
@@ -24,6 +28,15 @@ export default function Home() {
         <p className="text-slate-500 mt-1 text-sm md:text-base max-w-2xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
         </p>
+      </div>
+         <div className='flex flex-row  my-auto '>
+        <ul className='flex flex-row gap-3 '>
+          <li> List</li>
+          <li>Calender</li>
+          <li>Table</li>
+          <li>Display</li>
+        </ul>
+        <button>Add new</button>
       </div>
       
       <div className="hidden sm:block text-xs font-medium text-slate-400 bg-white px-3 py-1.5 rounded-full shadow-sm border border-slate-200">

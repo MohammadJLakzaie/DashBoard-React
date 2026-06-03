@@ -27,18 +27,19 @@ export default function Login () {
             </div>
 
             {/* Title area */}
-            <div className="mb-8 text-right">
+            <div className="mb-8">
               <h1 className="text-2xl text-wrap sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
-                در حساب خود ثبت نام کنید 
+                Sign Into
+                Your Account
               </h1>
-              
+              <div className="mt-2 h-1 w-12 bg-indigo-500 rounded-full"></div>
             </div>
 
             {/* Form */}
             <form id="signinForm" className="space-y-6"  method="POST">
              
-             <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری " />
-             <Inputs type="password"   placeholder="••••••••"  label="پسورد"/>
+             <Inputs  type="text"   placeholder="Enter your username"  label="Username" />
+             <Inputs type="password"   placeholder="••••••••"  label="password"/>
 
               <div className="flex items-center gap-3">
                 <input
@@ -54,7 +55,7 @@ export default function Login () {
                 </label>
               </div>
             {/* button from Components*/}
-              <Buttons name="Sign In" />
+              <Buttons name="Log in" />
             </form>
           </div>
         </div>

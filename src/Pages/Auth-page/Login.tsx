@@ -22,7 +22,7 @@ export default function Login () {
                 </svg>
               </div>
               <span className="text-xl font-semibold tracking-tight text-gray-800">
-                Your Logo
+                Trello CodeMenta Edition
               </span>
             </div>
 
@@ -40,18 +40,20 @@ export default function Login () {
              <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری " />
              <Inputs type="password"   placeholder="••••••••"  label="پسورد"/>
 
-              <div className="flex items-center gap-3">
-                <input
-                  id="remember-me"
-                  name="remember_me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 transition cursor-pointer"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="text-sm font-medium text-gray-700 cursor-pointer select-none"
-                > Remember Me
-                </label>
+            <div className="flex justify-end items-center gap-3">
+            <label
+             htmlFor="remember-me"
+              className="text-sm font-medium text-gray-700 cursor-pointer select-none"
+               >
+              من را به یاد بسپار
+             </label>
+
+           <input
+            id="remember-me"
+            name="remember_me"
+            type="checkbox"
+            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 transition cursor-pointer"
+                   />
               </div>
             {/* button from Components*/}
               <Buttons name="Sign In" />

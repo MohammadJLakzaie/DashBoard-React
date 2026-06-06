@@ -55,7 +55,7 @@ export default function Login () {
                 </label>
               </div>
             {/* button from Components*/}
-              <Buttons name="Log in" />
+              <Buttons name="ورود" />
             </form>
           </div>
         </div>

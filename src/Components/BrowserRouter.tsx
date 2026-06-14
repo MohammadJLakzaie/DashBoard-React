@@ -1,33 +1,13 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route,  } from 'react-router-dom';
 
-function Home() {
-  return <h1>Home Page</h1>;
-}
 
-function About() {
-  return <h1>About Page</h1>;
-}
 
-function Contact() {
-  return <h1>Contact Page</h1>;
-}
-
-function App() {
-  return (
-    <BrowserRouter>
-      {/* Navigation */}
-      <nav>
-        <Link to="/">Home</Link> |{" "}
-        <Link to="/about">About</Link> |{" "}
-        <Link to="/contact">Contact</Link>
-      </nav>
-
-      {/* Routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
-  );
+export default function BrowserRouter(){
+  <Routes>
+        <Route path="/" element={<AuthLayout/>} />
+        <Route path="/Home" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/profile/:username" element={<Profile/>} />
+        <Route path="*" element={<NotFound />} /> {/* 404 catch-all */}
+</Routes>
 }

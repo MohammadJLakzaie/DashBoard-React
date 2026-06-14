@@ -26,5 +26,5 @@ export default function AuthLayout() {
             <Login/>
       </div>
     </div>
-  );
+  )
 }

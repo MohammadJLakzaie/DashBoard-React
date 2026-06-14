@@ -57,8 +57,7 @@ export default function SimpleNavbar() {
           {/* Hamburger button - visible only on mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="sm:hidden p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10"
-          >
+            className="sm:hidden p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
             {/* Simple hamburger icon (☰) or X when open */}
             {menuOpen ? "✖" : "☰"}
           </button>
@@ -78,7 +77,7 @@ export default function SimpleNavbar() {
                       ? "text-white font-bold bg-white/10"
                       : "text-indigo-200 hover:text-white hover:bg-white/10"
                   }`}
-                >
+                    >
                   {item}
                 </button>
               </li>

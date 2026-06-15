@@ -18,7 +18,7 @@ export default function SimpleNavbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded bg-white/20 flex items-center justify-center">
-            <span className="text-white text-xs font-bold">L</span>
+            <span className="text-white text-xs font-bold">T</span>
           </div>
           <span className="text-white font-semibold text-sm">Trello</span>
         </div>

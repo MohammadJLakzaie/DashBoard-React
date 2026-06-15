@@ -55,7 +55,7 @@ export default function Sidebar() {
           <li>
             <NavLink
               to="home"
-              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-bold text-slate-600 hover:text-slate-800 hover:bg-slate-100"
             >
               خانه
             </NavLink>

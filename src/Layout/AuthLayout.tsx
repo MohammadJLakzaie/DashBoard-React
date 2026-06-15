@@ -1,6 +1,6 @@
 
 // import { useNavigate } from 'react-router-dom';
-import Login from '../Pages/Auth-page/Login'
+import Signin from '../Pages/Auth-page/Signin'
 export default function AuthLayout() {
   // <Routes>
   //   <Route path="/A" element={<Home />} />
@@ -23,7 +23,7 @@ export default function AuthLayout() {
 
       {/* Container for centering the card on small screens */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center  justify-center lg:justify-end ">
-            <Login/>
+            <Signin/>
       </div>
     </div>
   )

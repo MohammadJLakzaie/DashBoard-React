@@ -1,6 +1,8 @@
 import Buttons from '../../Components/Buttons' ;
-import Inputs from '../../Components/Inputs'
-export default function Login () {
+import Inputs from '../../Components/Inputs' 
+import { useNavigate } from "react-router-dom";
+export default function Signi() {
+ const navigate = useNavigate();
     return(
             <div className="w-full max-w-md bg-white/75 rounded-2xl lg:mx-60 shadow-card overflow-hidden transition-all duration-300 hover:shadow-2xl">
           <div className="px-4 py-6 sm:px-8 sm:py-10">
@@ -22,40 +24,41 @@ export default function Login () {
                 </svg>
               </div>
               <span className="text-xl font-semibold tracking-tight text-gray-800">
-                Your Logo
+                Trello CodeMenta Edition
               </span>
             </div>
 
             {/* Title area */}
-            <div className="mb-8">
+            <div className="mb-8 text-right">
               <h1 className="text-2xl text-wrap sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
-                Sign Into
-                Your Account
+              به حساب خود وارد شوید 
               </h1>
-              <div className="mt-2 h-1 w-12 bg-indigo-500 rounded-full"></div>
+              
             </div>
 
             {/* Form */}
             <form id="signinForm" className="space-y-6"  method="POST">
              
-             <Inputs  type="text"   placeholder="Enter your username"  label="Username" />
-             <Inputs type="password"   placeholder="••••••••"  label="password"/>
+             <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری " />
+             <Inputs type="password"   placeholder="••••••••"  label="پسورد"/>
 
-              <div className="flex items-center gap-3">
-                <input
-                  id="remember-me"
-                  name="remember_me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 transition cursor-pointer"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="text-sm font-medium text-gray-700 cursor-pointer select-none"
-                > Remember Me
-                </label>
+            <div className="flex justify-end items-center gap-3">
+            <label
+             htmlFor="remember-me"
+              className="text-sm font-medium text-gray-700 cursor-pointer select-none"
+               >
+              من را به یاد بسپار
+             </label>
+
+           <input
+            id="remember-me"
+            name="remember_me"
+            type="checkbox"
+            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-0 transition cursor-pointer"
+                   />
               </div>
             {/* button from Components*/}
-              <Buttons name="ورود" />
+              <Buttons onClick={() => navigate("/app") } name="ورود" />
             </form>
           </div>
         </div>

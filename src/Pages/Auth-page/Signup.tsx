@@ -1,7 +1,7 @@
 import Buttons from '../../Components/Buttons' ;
 import Inputs from '../../Components/Inputs' 
 import { useNavigate } from "react-router-dom";
-export default function Login () {
+export default function Signup() {
  const navigate = useNavigate();
     return(
             <div className="w-full max-w-md bg-white/75 rounded-2xl lg:mx-60 shadow-card overflow-hidden transition-all duration-300 hover:shadow-2xl">
@@ -41,6 +41,7 @@ export default function Login () {
              
              <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری " />
              <Inputs type="password"   placeholder="••••••••"  label="پسورد"/>
+             <Inputs type="password"   placeholder="••••••••"  label="تایید پسورد"/>
 
             <div className="flex justify-end items-center gap-3">
             <label

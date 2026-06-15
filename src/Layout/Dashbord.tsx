@@ -12,15 +12,16 @@ export default function Dashboard(){
 
   {/* Body */}
   <div className="flex flex-1">
-    {/* Sidebar */}
-    <aside className="w-64  p-4">
-      <Sidebar/>
-    </aside>
-
     {/* Content */}
     <main className="flex-1 bg-gray-100 p-4 ">
       <Outlet/>
     </main>
+
+
+     {/* Sidebar */}
+    <aside className="w-64  p-4">
+      <Sidebar/>
+    </aside>
   </div>
 </div>
     )

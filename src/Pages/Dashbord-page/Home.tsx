@@ -1,8 +1,8 @@
 
 export default function Home() {
      return(
-      <div>
-         Home
+      <div className="flex justify-end">
+         خانه
       </div>
      )
  }

@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import Buttons from "./Buttons";
 
 export default function TaskBoard() {
   const handleAddCard = useCallback((column: string) => {
@@ -39,23 +40,8 @@ export default function TaskBoard() {
 
             {/* Footer */}
             <div className="p-3 border-t border-slate-200">
-              <button
-                onClick={() => handleAddCard(column.id)}
-                className="
-                  w-full
-                  rounded-lg
-                  border
-                  border-dashed
-                  border-slate-300
-                  py-2
-                  text-sm
-                  text-slate-600
-                  hover:bg-slate-200
-                  transition
-                "
-              >
-                + افزودن کارت
-              </button>
+             <Buttons name={"افزودن کارت"} onClick={() => handleAddCard(column.id)} className={
+             "w-full rounded-lg border border-dashed border-slate-300 py-2 text-s text-slate-600 hover:bg-slate-200 transition"} />
             </div>
           </section>
         ))}

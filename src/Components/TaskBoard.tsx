@@ -13,7 +13,7 @@ export default function TaskBoard() {
   ];
 
   return (
-    <div className="h-full overflow-x-auto p-4">
+    <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
       <div className="flex gap-4 min-w-[1100px] justify-center h-full">
 
         {columns.map((column) => (
@@ -22,8 +22,8 @@ export default function TaskBoard() {
             className="flex flex-col w-[260px] bg-slate-100 rounded-xl border border-slate-200"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-slate-200">
-              <span className="font-semibold text-slate-800">
+            <div className="flex items-center justify-center p-4 border-b border-slate-200">
+              <span className="font-semibold  text-slate-800">
                 {column.title}
               </span>
 

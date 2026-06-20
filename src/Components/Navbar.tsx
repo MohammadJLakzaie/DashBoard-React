@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+
+import { NavLink } from "react-router-dom";
 const NAV_ITEMS = ["داشبورد", "جریان داده", "تحلیل ها", "کاربران"];
 
 export default function SimpleNavbar() {
@@ -12,7 +14,7 @@ export default function SimpleNavbar() {
   };
 
   return (
-    <nav className="bg-indigo-600 shadow-lg">
+    <nav className="bg-indigo-600 shadow-lg w-full">
       {/* Top bar */}
       <div className="flex items-center justify-between h-11 px-4">
         {/* Logo */}
@@ -60,13 +62,15 @@ export default function SimpleNavbar() {
             className="sm:hidden p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
             {/* Simple hamburger icon (☰) or X when open */}
             {menuOpen ? "✖" : "☰"}
-          </button>
+          </button >
+          {/* this button will open sidebar */}
+          
         </div>
       </div>
 
       {/* Mobile dropdown menu - only shown when menuOpen is true */}
       {menuOpen && (
-        <div className="sm:hidden border-t border-indigo-500 bg-indigo-600">
+        <div className="sm:hidden border-t flex flex-col justify-center border-indigo-500 bg-indigo-600">
           <ul className="flex flex-col px-4 py-2 gap-1">
             {NAV_ITEMS.map((item) => (
               <li key={item}>
@@ -81,8 +85,30 @@ export default function SimpleNavbar() {
                   {item}
                 </button>
               </li>
+              
             ))}
           </ul>
+          <div>
+                    <ul className="flex flex-col px-4 py-2 gap-1">
+          <li>
+            <NavLink
+              to="home"
+              className={`flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-indigo-200 `}
+            >
+              خانه
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/app/profile"
+              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-indigo-200"
+            >
+              پروفایل
+            </NavLink>
+          </li>
+        </ul>
+          </div>
         </div>
       )}
     </nav>

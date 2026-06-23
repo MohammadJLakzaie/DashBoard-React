@@ -22,8 +22,6 @@ export default function TaskBoard() {
      <TaskColumn name={'در حال انجام'}/>
      <TaskColumn name={'در انتظار'}/>
      <TaskColumn name={'انجام شده'}/>
-    
-      
 
       </div>
     </div>

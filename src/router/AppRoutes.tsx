@@ -5,10 +5,12 @@ import Dashboard from "../Layout/Dashbord"
 import Profile from "../Pages/Dashbord-page//Profile";
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <AuthLayout/>,
+  
   },
   {
     path: "/app",

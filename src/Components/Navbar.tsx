@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 const NAV_ITEMS = ["داشبورد", "جریان داده", "تحلیل ها", "کاربران"];
 
-export default function SimpleNavbar() {
+export default function Navbar() {
   const [active, setActive] = useState("Dashboard");
   const [menuOpen, setMenuOpen] = useState(false);
 

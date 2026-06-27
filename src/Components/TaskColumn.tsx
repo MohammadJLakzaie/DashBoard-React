@@ -1,8 +1,11 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
 import Buttons  from "./Buttons";
-
-export default function TaskColumn({name}: string) {
+type ss ={
+  name : string ; 
+  id: number ; 
+}
+export default function TaskColumn({name , id}: ss) {
 
 const [open , setOpen] = useState(false) ; 
 const handleAddCard = (open) =>{
@@ -18,7 +21,7 @@ const handleAddCard = (open) =>{
           
           <section
             // key={column.id}
-            className="flex flex-col w-[260px] bg-slate-100 rounded-xl border border-slate-200"
+            className="flex flex-col w-[260px] bg-slate-100 rounded-xl border border-slate-200 h-full"
           >
             {/* Header */}
             <div className="flex items-center justify-center p-4 border-b border-slate-200">

@@ -1,28 +1,75 @@
 import { useCallback } from "react";
 import { useState } from "react";
-import TaskColumn from "../Components/TaskColumn"
-import Buttons from "./Buttons";
-import TaskCard from "./TaskCard"
+import TaskColumn from "../Components/TaskColumn" ;
+import TaskCard from "./TaskCard";
+
+
 
 export default function TaskBoard() {
-  
-  const handleAddCard = useCallback((column: string) => {
-    console.log(`Add card to ${column}`);
 
-  },[]);
+const columns = [
+  {
+    name : 'بک لاگ' ,
+    status : 'backlog'
+  } , 
+  {
+    name : 'در حال انجام' ,
+    status : 'inProgress'
+  } , 
+  {
+    name : 'درانتظار' ,
+    status : 'pending'
+  } , 
+  {
+    name : 'انجام شده' ,
+    status : 'Done'
+  }
+]
+
+
+const [tasks , setTask] = useState([
+  {
+    title : 'test' , 
+    status : 'backlog'
+  } ,
+  {
+    title : 'test' , 
+    status : 'inProgress'
+  } ,
+  {
+    title : 'test' , 
+    status : 'Done'
+  } ,
+  {
+    title : 'test' , 
+    status : 'Done'
+  }
+]) ;
 
 
 
-  const [menustate , setmenu] = useState(false)
+
+
+
+
+const AddTask = (title: string, status: string) => {
+  setTask((prev) => [...prev, { title, status }]);
+};
+
+  // const [menustate , setmenu] = useState(false)
 
   return (
     <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
-      <div className="flex gap-4 min-w-[1100px] justify-center h-full">
-     <TaskColumn name={'بک لاگ'} id={1}/>
-     <TaskColumn name={'در حال انجام'} id={2}/>
-     <TaskColumn name={'در انتظار'} id={3}/>
-     <TaskColumn name={'انجام شده'} id={4}/>
-
+      <div className="flex gap-4 min-w-275 justify-center h-full">
+   {columns.map((a) => (
+          <TaskColumn
+            key={a.status}
+            name={a.name}
+            column={a.status}
+            filteredTasks={tasks.filter((task) => task.status === a.status )}
+            onAddTask={AddTask}
+          />
+        ))}
       </div>
     </div>
   );

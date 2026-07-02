@@ -1,20 +1,34 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
 import Buttons  from "./Buttons";
+import Inputs from "./Inputs";
+
+
 type ss ={
   name : string ; 
-  id: number ; 
+  status: string ; 
 }
-export default function TaskColumn({name , id}: ss) {
+export default function TaskColumn({name , column ,  filteredTasks  ,onAddTask}: ss ) {
 
 const [open , setOpen] = useState(false) ; 
 const handleAddCard = (open) =>{
     if(open){
       setOpen(false)
     }else{
-      setOpen(true)
+      setOpen(true) ;
+      
     }
  }
+
+ const [note , setNote] = useState("") ;
+
+   const write = () => {
+    if (note.trim() === "") return; // جلوگیری از اضافه کردن تسک خالی
+    onAddTask(note, column);
+    setNote("");       // پاک کردن اینپوت بعد از ثبت
+    setOpen(false);     // بستن فرم
+  };
+
 
     return(
          <>
@@ -34,14 +48,10 @@ const handleAddCard = (open) =>{
 
             {/* Cards Container */}
             <div className="flex-1 overflow-y-auto p-3 space-y-3">
-
-              {/* کارت‌ها بعداً اینجا رندر می‌شوند */}
-              <div id="Container" className="flex-1 overflow-y-auto p-3 space-y-3">
-                <TaskCard title="طراحی صفحه لاگین" />
-              </div>
-
-            </div>
-
+          {filteredTasks.map((task, index) => (
+            <TaskCard key={index} title={task.title} />
+          ))}
+        </div>
             {/* Footer */}
             {!open && (<div className="p-3 border-t border-slate-200">
              <Buttons name={"+ افزودن کارت"} onClick={() => handleAddCard(open)} className={
@@ -56,7 +66,9 @@ rounded-xl
 p-3
 shadow-sm
 space-y-3">
-  <input type="text" placeholder="Enter a title or paste a link" className="w-full 
+<input type="text" placeholder="Enter a title or paste a link"  onChange={(event) => {
+    setNote(event.target.value);
+  }} className="w-full 
 rounded-lg
 border
 border-slate-300
@@ -70,7 +82,7 @@ focus:ring-indigo-100" />
 
 <div className="flex flex-row gap-2">
 
-<Buttons name={'تایید'} className={"w-full rounded-lg bg-indigo-600 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"}/>
+<Buttons name={'تایید'} className={"w-full rounded-lg bg-indigo-600 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"} onClick={()=> write() }  />
 <Buttons name={'لغو'} className={"w-full rounded-lg bg-orange-600 py-2 text-sm font-medium text-white transition hover:bg-orange-700"} onClick={()=> handleAddCard(open)}/>
 </div>
 </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 type TaskCardProps = {
   title: string;
+  
 };
 
 export default function TaskCard({ title }: TaskCardProps) {

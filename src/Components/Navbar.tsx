@@ -8,8 +8,8 @@ export default function Navbar() {
   const [active, setActive] = useState("Dashboard");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = (item) => {
-    setActive(item);
+  const handleClick = (item : string) => {
+    setActive(item );
     setMenuOpen(false); // close menu after click on mobile
   };
 

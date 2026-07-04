@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 type TaskCardProps = {
   title: string;
@@ -6,8 +6,7 @@ type TaskCardProps = {
 };
 
 export default function TaskCard({ title }: TaskCardProps) {
-  const [card , setcard] = useState(0) ;
-
+  
  
 
   return (

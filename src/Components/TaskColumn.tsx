@@ -1,17 +1,20 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
 import Buttons  from "./Buttons";
-import Inputs from "./Inputs";
+import type {taskType} from "../Types" ;
 
 
 type ss ={
   name : string ; 
-  status: string ; 
+  column : string ; 
+  filteredTasks :taskType[] ; 
+  onAddTask : Function
+  
 }
 export default function TaskColumn({name , column ,  filteredTasks  ,onAddTask}: ss ) {
 
 const [open , setOpen] = useState(false) ; 
-const handleAddCard = (open) =>{
+const handleAddCard = (open :boolean) : void =>{
     if(open){
       setOpen(false)
     }else{
@@ -22,12 +25,12 @@ const handleAddCard = (open) =>{
 
  const [note , setNote] = useState("") ;
 
-   const write = () => {
+   const write = () : void => {
     if (note.trim() === "") return; // جلوگیری از اضافه کردن تسک خالی
     onAddTask(note, column);
     setNote("");       // پاک کردن اینپوت بعد از ثبت
     setOpen(false);     // بستن فرم
-  };
+  } ;
 
 
     return(
@@ -35,7 +38,7 @@ const handleAddCard = (open) =>{
           
           <section
             // key={column.id}
-            className="flex flex-col w-[260px] bg-slate-100 rounded-xl border border-slate-200 h-full"
+            className="flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full"
           >
             {/* Header */}
             <div className="flex items-center justify-center p-4 border-b border-slate-200">
@@ -48,7 +51,7 @@ const handleAddCard = (open) =>{
 
             {/* Cards Container */}
             <div className="flex-1 overflow-y-auto p-3 space-y-3">
-          {filteredTasks.map((task, index) => (
+          {filteredTasks.map((task : taskType, index : number) => (
             <TaskCard key={index} title={task.title} />
           ))}
         </div>

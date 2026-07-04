@@ -1,13 +1,16 @@
-import { useCallback } from "react";
 import { useState } from "react";
 import TaskColumn from "../Components/TaskColumn" ;
-import TaskCard from "./TaskCard";
+import type {taskType} from "../Types"
 
+type columnType = {
+  name : string ; 
+  status : string ; 
+}
 
 
 export default function TaskBoard() {
 
-const columns = [
+const columns : columnType[] = [
   {
     name : 'بک لاگ' ,
     status : 'backlog'
@@ -27,7 +30,7 @@ const columns = [
 ]
 
 
-const [tasks , setTask] = useState([
+const [tasks , setTask] = useState<taskType[]>([
   {
     title : 'test' , 
     status : 'backlog'
@@ -56,7 +59,7 @@ const AddTask = (title: string, status: string) => {
   setTask((prev) => [...prev, { title, status }]);
 };
 
-  // const [menustate , setmenu] = useState(false)
+ 
 
   return (
     <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
@@ -65,8 +68,8 @@ const AddTask = (title: string, status: string) => {
           <TaskColumn
             key={a.status}
             name={a.name}
-            column={a.status}
-            filteredTasks={tasks.filter((task) => task.status === a.status )}
+            column={a.status} 
+            filteredTasks={tasks.filter((task) => task.status === a.status )} 
             onAddTask={AddTask}
           />
         ))}

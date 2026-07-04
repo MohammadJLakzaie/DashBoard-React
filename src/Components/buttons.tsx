@@ -1,5 +1,5 @@
 type ButtonProps ={
-   
+   onClick: () => void;
   name:string ;
   className : string ; 
 }

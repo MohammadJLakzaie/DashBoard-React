@@ -1,6 +1,18 @@
 import { NavLink } from "react-router-dom";
 
-const NavItem = ({ emoji, label, active = false, muted = false }) => (
+type NavItemTypes = {
+  emoji : string ;
+  label : string ;
+  active?: boolean ;
+  muted?: boolean 
+}
+
+
+type sectionLabel ={
+  children : string ; 
+}
+
+const NavItem = ({ emoji, label, active = false, muted = false } : NavItemTypes) => (
   <li>
     <a
       href="#"
@@ -18,7 +30,7 @@ const NavItem = ({ emoji, label, active = false, muted = false }) => (
   </li>
 );
 
-const SectionLabel = ({ children }) => (
+const SectionLabel = ({ children } : sectionLabel) => (
   <p className="px-3 pt-4 pb-1 text-[10px] font-semibold uppercase tracking-widest text-slate-400 flex items-center gap-1 justify-start">
     {children}
     <span>▾</span>
@@ -75,7 +87,7 @@ export default function Sidebar() {
         <SectionLabel>My Dashboard</SectionLabel>
 
         <ul className="space-y-0.5">
-          <NavItem emoji="✅" label="Monthly OKRs" />
+          <NavItem emoji="✅" label="Monthly OKRs"   />
           <NavItem emoji="💡" label="Product Key Drivers" />
           <NavItem emoji="✏️" label="Design Team ORKs" />
         </ul>

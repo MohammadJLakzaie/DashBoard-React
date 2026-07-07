@@ -2,22 +2,23 @@ import Buttons from "./Buttons" ;
 
 
 type CardInsideProps = {
-  funcClose: () => void;
+  funcClose: Function ; 
+  title : string ; 
 }
 
-export default function CardInside ({funcClose} : CardInsideProps  ) {
+export default function CardInside ({funcClose , title} : CardInsideProps  ) {
     return(
         <>
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20  p-4">
       <div className="w-full max-w-lg sm:max-w-xl rounded-xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto">
 
         {/* Header */}
         <div className="flex items-start justify-between gap-4 border-b border-gray-200 px-5 py-4 sm:px-6">
           <h2 className="text-lg sm:text-xl font-semibold text-gray-900 wrap-break-word">
-            Design homepage wireframes
+            {title}
           </h2>
           {/* close button */}
-       <Buttons onClick={funcClose}  name="خروج" className={"shrink-0 rounded-md p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"}/>
+       <Buttons onClick={funcClose}  name="خروج" className={"shrink-0 rounded-md p-1.5 text-gray-600 hover:bg-gray-100 hover:text-gray-800 transition-colors"}/>
         </div>
 
         {/* Body */}
@@ -27,7 +28,7 @@ export default function CardInside ({funcClose} : CardInsideProps  ) {
              : توضیحات
             </h3>
 
-           <textarea type="text" placeholder="تسک خود را اینجا شرح دهید" className="block w-full h-48 px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"/>
+           <textarea  placeholder="تسک خود را اینجا شرح دهید" className="block w-full h-48 px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"/>
             
           </div>
         </div>

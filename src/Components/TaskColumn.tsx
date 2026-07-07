@@ -53,7 +53,7 @@ const handleAddCard = (open :boolean) : void =>{
             {/* Cards Container */}
             <div className="flex-1 overflow-y-auto p-3 space-y-3">
           {filteredTasks.map((task : taskType, index : number) => (
-            <TaskCard key={index} title={task.title} func={funcOpen} />
+            <TaskCard key={index} Monotask={task} func={funcOpen} />
           ))}
         </div>
             {/* Footer */}

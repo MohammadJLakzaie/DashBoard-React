@@ -3,6 +3,7 @@ import TaskColumn from "../Components/TaskColumn" ;
 import type {taskType} from "../Types"
 import CardInside from "./CardInside";
 
+
 type columnType = {
   name : string ; 
   status : string ; 
@@ -34,35 +35,35 @@ const columns : columnType[] = [
 
 const [tasks , setTask] = useState<taskType[]>([
   {
-    title : 'test' , 
+    title : 'task1' , 
     status : 'backlog'
   } ,
   {
-    title : 'test' , 
+    title : 'task2' , 
     status : 'inProgress'
   } ,
   {
-    title : 'test' , 
+    title : 'task3' , 
     status : 'Done'
   } ,
   {
-    title : 'test' , 
+    title : 'task4' , 
     status : 'pending'
   } ,
   {
-    title : 'test' , 
+    title : 'task7' , 
     status : 'Done'
   }
 ]) ;
 
 const [close , setclose] = useState(false)
+const [selectTask , setSelect] = useState('')
+const handleClose = (t) =>{
+  close ? setclose(false) : setclose(true) ; 
+  setSelect(t.title)
+  console.log(t)
+}
 
-const handleClose = () =>{
-  setclose(false)
-}
-const handleOpen = () =>{
-  setclose(true)
-}
 
 
 
@@ -76,7 +77,9 @@ const AddTask = (title: string, status: string) => {
     <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
 
 {close && ( <div className="flex justify-center z-10">
-      <CardInside funcClose={handleClose} />
+      
+        <CardInside funcClose={handleClose}  title={selectTask}/>
+      
 </div> )}
 
       <div className="flex gap-4 min-w-275 justify-center h-full">
@@ -87,7 +90,7 @@ const AddTask = (title: string, status: string) => {
             column={a.status} 
             filteredTasks={tasks.filter((task) => task.status === a.status )} 
             onAddTask={AddTask}
-            funcOpen={handleOpen}
+            funcOpen={handleClose} 
           />
         ))}
       </div>

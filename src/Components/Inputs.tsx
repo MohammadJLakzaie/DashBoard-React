@@ -1,7 +1,7 @@
 type InputProps = {
   type: string;
   placeholder: string;
-  label: string;
+  label?: string;
 };
 
 export default function Inputs(

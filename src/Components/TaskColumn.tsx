@@ -8,10 +8,11 @@ type ss ={
   name : string ; 
   column : string ; 
   filteredTasks :taskType[] ; 
-  onAddTask : Function
+  onAddTask : Function ;
+  funcOpen : Function
   
 }
-export default function TaskColumn({name , column ,  filteredTasks  ,onAddTask}: ss ) {
+export default function TaskColumn({name , column ,  filteredTasks  ,onAddTask , funcOpen}: ss ) {
 
 const [open , setOpen] = useState(false) ; 
 const handleAddCard = (open :boolean) : void =>{
@@ -52,7 +53,7 @@ const handleAddCard = (open :boolean) : void =>{
             {/* Cards Container */}
             <div className="flex-1 overflow-y-auto p-3 space-y-3">
           {filteredTasks.map((task : taskType, index : number) => (
-            <TaskCard key={index} title={task.title} />
+            <TaskCard key={index} title={task.title} func={funcOpen} />
           ))}
         </div>
             {/* Footer */}

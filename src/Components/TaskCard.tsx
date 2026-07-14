@@ -7,9 +7,6 @@ type TaskCardProps = {
 };
 
 export default function TaskCard({ Monotask ,  func  }: TaskCardProps) {
-  
- 
-
   return (
 <div onClick={() => func(Monotask)}>
     

@@ -3,12 +3,11 @@ import { router } from "./router/AppRoutes";
 import './App.css'
 export default function App() {
   return (
-    <div>
+   <>
       {/* Navigation – will be visible on all pages */}
      
      <RouterProvider router={router} />
       {/* Routes section – only one Route renders at a time */}
-     
-    </div>
+   </>
   );
 }

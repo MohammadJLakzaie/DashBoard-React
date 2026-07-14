@@ -1,78 +1,87 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
-import Buttons  from "./Buttons";
-import type {taskType} from "../Types" ;
+import Buttons from "./Buttons";
+import type { taskType } from "../Types/Types";
 
-
-type ss ={
-  name : string ; 
-  column : string ; 
-  filteredTasks :taskType[] ; 
-  onAddTask : Function ;
-  funcOpen : Function
-  
-}
-export default function TaskColumn({name , column ,  filteredTasks  ,onAddTask , funcOpen}: ss ) {
-
-const [open , setOpen] = useState(false) ; 
-const handleAddCard = (open :boolean) : void =>{
-    if(open){
-      setOpen(false)
-    }else{
-      setOpen(true) ;
-      
+type ss = {
+  name: string;
+  column: string;
+  filteredTasks: taskType[];
+  onAddTask: Function;
+  funcOpen: Function;
+};
+export default function TaskColumn({
+  name,
+  column,
+  filteredTasks,
+  onAddTask,
+  funcOpen,
+}: ss) {
+  const [open, setOpen] = useState(false);
+  const handleAddCard = (open: boolean): void => {
+    if (open) {
+      setOpen(false);
+    } else {
+      setOpen(true);
     }
- }
+  };
 
- const [note , setNote] = useState("") ;
+  const [note, setNote] = useState("");
 
-   const write = () : void => {
+  const write = (): void => {
     if (note.trim() === "") return; // جلوگیری از اضافه کردن تسک خالی
     onAddTask(note, column);
-    setNote("");       // پاک کردن اینپوت بعد از ثبت
-    setOpen(false);     // بستن فرم
-  } ;
+    setNote(""); // پاک کردن اینپوت بعد از ثبت
+    setOpen(false); // بستن فرم
+  };
 
+  return (
+    <>
+      <section
+        // key={column.id}
+        className="flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full max-h-[80vh] overflow-y-auto"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-center p-4 border-b border-slate-200">
+          <span className="font-semibold  text-slate-800">{name}</span>
+        </div>
 
-    return(
-         <>
-          
-          <section
-            // key={column.id}
-            className="flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full"
-          >
-            {/* Header */}
-            <div className="flex items-center justify-center p-4 border-b border-slate-200">
-              <span className="font-semibold  text-slate-800">
-                {name}
-              </span>
-
-             
-            </div>
-
-            {/* Cards Container */}
-            <div className="flex-1 overflow-y-auto p-3 space-y-3">
-          {filteredTasks.map((task : taskType, index : number) => (
+        {/* Cards Container */}
+        <div className="flex-1 overflow-y-auto p-3 space-y-3">
+          {filteredTasks.map((task: taskType, index: number) => (
             <TaskCard key={index} Monotask={task} func={funcOpen} />
           ))}
         </div>
-            {/* Footer */}
-            {!open && (<div className="p-3 border-t border-slate-200">
-             <Buttons name={"+ افزودن کارت"} onClick={() => handleAddCard(open)} className={
-             "w-full rounded-lg border border-dashed border-slate-300 py-2 text-s text-slate-600 hover:bg-slate-200 transition "} />
-            </div>)}
-         {open && (
-             <div className="bg-white
+        {/* Footer */}
+        {!open && (
+          <div className="p-3 border-t border-slate-200">
+            <Buttons
+              name={"+ افزودن کارت"}
+              onClick={() => handleAddCard(open)}
+              className={
+                "w-full rounded-lg border border-dashed border-slate-300 py-2 text-s text-slate-600 hover:bg-slate-200 transition "
+              }
+            />
+          </div>
+        )}
+        {open && (
+          <div
+            className="bg-white
             
 border
 border-slate-200
 rounded-xl
 p-3
 shadow-sm
-space-y-3">
-<input type="text" placeholder="Enter a title or paste a link"  onChange={(event) => {
-    setNote(event.target.value);
-  }} className="w-full 
+space-y-3"
+          >
+            <input
+              type="text"
+              placeholder="Enter a title or paste a link"
+              onChange={(event) => {
+                setNote(event.target.value);
+              }}
+              className="w-full 
 rounded-lg
 border
 border-slate-300
@@ -82,16 +91,28 @@ text-sm
 outline-none
 focus:border-indigo-500
 focus:ring-2
-focus:ring-indigo-100" />
+focus:ring-indigo-100"
+            />
 
-<div className="flex flex-row gap-2">
-
-<Buttons name={'تایید'} className={"w-full rounded-lg bg-indigo-600 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"} onClick={()=> write() }  />
-<Buttons name={'لغو'} className={"w-full rounded-lg bg-orange-600 py-2 text-sm font-medium text-white transition hover:bg-orange-700"} onClick={()=> handleAddCard(open)}/>
-</div>
-</div>
-         )}
-          </section>
-      </>
-    )
+            <div className="flex flex-row gap-2">
+              <Buttons
+                name={"تایید"}
+                className={
+                  "w-full rounded-lg bg-indigo-600 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+                }
+                onClick={() => write()}
+              />
+              <Buttons
+                name={"لغو"}
+                className={
+                  "w-full rounded-lg bg-orange-600 py-2 text-sm font-medium text-white transition hover:bg-orange-700"
+                }
+                onClick={() => handleAddCard(open)}
+              />
+            </div>
+          </div>
+        )}
+      </section>
+    </>
+  );
 }

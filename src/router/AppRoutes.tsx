@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../Layout/AuthLayout";
 import Home from "../Pages/Dashbord-page/Home" ;
 import Dashboard from "../Layout/Dashbord"
-import Profile from "../Pages/Dashbord-page//Profile";
+import Profile from "../Pages/Dashbord-page/Profile";
 
 
 

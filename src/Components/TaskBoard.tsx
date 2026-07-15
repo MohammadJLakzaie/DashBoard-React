@@ -1,12 +1,9 @@
 import { useState } from "react";
 import TaskColumn from "../Components/TaskColumn";
 import type { taskType } from "../Types/Types";
-import CardInside from "./CardInside";
+import TaskDetailsModal from "./TaskDetailsModal";
+import type {columnType} from "../Types/Types";
 
-type columnType = {
-  name: string;
-  status: string;
-};
 
 export default function TaskBoard() {
   const columns: columnType[] = [
@@ -53,11 +50,15 @@ export default function TaskBoard() {
 
   const [close, setclose] = useState(false);
   const [selectTask, setSelect] = useState("");
-  const handleClose = (t) => {
-    close ? setclose(false) : setclose(true);
-    setSelect(t.title);
-    console.log(t);
-  };
+
+  //this function will colse/open and set the TaskDetailsModal-Component 
+const handleClose = (t: taskType): void => {
+  close ? setclose(false) : setclose(true);
+
+  setSelect(t.title);
+
+  console.log(t);
+};
 
   const AddTask = (title: string, status: string) => {
     setTask((prev) => [...prev, { title, status }]);
@@ -67,7 +68,7 @@ export default function TaskBoard() {
     <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
       {close && (
         <div className="flex justify-center z-10">
-          <CardInside funcClose={handleClose} title={selectTask} />
+          <TaskDetailsModal funcClose={handleClose} title={selectTask} />
         </div>
       )}
 

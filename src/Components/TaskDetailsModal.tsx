@@ -6,7 +6,7 @@ type CardInsideProps = {
   title : string ; 
 }
 
-export default function CardInside ({funcClose , title} : CardInsideProps  ) {
+export default function TaskDetailsModal ({funcClose , title} : CardInsideProps  ) {
     return(
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20  p-4">

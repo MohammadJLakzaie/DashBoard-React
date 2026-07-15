@@ -1,10 +1,6 @@
+import type {TaskCardProps} from "../Types/Types"
 
 
-type TaskCardProps = {
-  Monotask: object;
-  func : Function ; 
-  
-};
 
 export default function TaskCard({ Monotask ,  func  }: TaskCardProps) {
   return (

@@ -2,21 +2,16 @@ import { useState } from "react";
 import TaskCard from "./TaskCard";
 import Buttons from "./Buttons";
 import type { taskType } from "../Types/Types";
+import type { taskColumnProps } from "../Types/Types";
 
-type ss = {
-  name: string;
-  column: string;
-  filteredTasks: taskType[];
-  onAddTask: Function;
-  funcOpen: Function;
-};
+
 export default function TaskColumn({
   name,
   column,
   filteredTasks,
   onAddTask,
   funcOpen,
-}: ss) {
+}: taskColumnProps) {
   const [open, setOpen] = useState(false);
   const handleAddCard = (open: boolean): void => {
     if (open) {

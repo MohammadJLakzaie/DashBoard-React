@@ -1,16 +1,9 @@
 import { NavLink } from "react-router-dom";
-
-type NavItemTypes = {
-  emoji : string ;
-  label : string ;
-  active?: boolean ;
-  muted?: boolean 
-}
+import type { sectionLabel } from "../Types/Types" ;
+import type { NavItemTypes } from "../Types/Types" ;
 
 
-type sectionLabel ={
-  children : string ; 
-}
+
 
 const NavItem = ({ emoji, label, active = false, muted = false } : NavItemTypes) => (
   <li>

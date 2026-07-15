@@ -1,7 +1,7 @@
 import Buttons from '../../Components/Buttons' ;
 import Inputs from '../../Components/Inputs' 
 import { useNavigate } from "react-router-dom";
-export default function Signi() {
+export default function Signin() {
  const navigate = useNavigate();
     return(
             <div className="w-full max-w-md bg-white/75 rounded-2xl lg:mx-60 shadow-card overflow-hidden transition-all duration-300 hover:shadow-2xl">
@@ -59,6 +59,7 @@ export default function Signi() {
               </div>
             {/* button from Components*/}
               <Buttons onClick={() => navigate("/app") } name="ورود" className={"group relative w-full flex justify-center py-3 px-4 mt-2 border border-transparent text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"} />
+              <Buttons onClick={() => navigate("/signup") } name="اکانت ندارید؟ ثبت نام کنید" className={"group relative w-full flex justify-center py-3 px-4 mt-2 border border-transparent text-sm font-semibold rounded-xl text-black bg-indigo-100 hover:ring-sky-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 shadow-md transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"} />
             </form>
           </div>
         </div>

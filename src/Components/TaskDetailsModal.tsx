@@ -1,12 +1,9 @@
 import Buttons from "./Buttons" ;
+import type {TaskDetailsModalProps} from "../Types/Types"
 
 
-type CardInsideProps = {
-  funcClose: Function ; 
-  title : string ; 
-}
 
-export default function TaskDetailsModal ({funcClose , title} : CardInsideProps  ) {
+export default function TaskDetailsModal ({funcClose , title} : TaskDetailsModalProps  ) {
     return(
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20  p-4">

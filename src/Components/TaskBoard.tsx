@@ -59,7 +59,7 @@ const handleClose = (t: taskType): void => {
 
   console.log(t);
 };
-
+// save previos task and add another task
   const AddTask = (title: string, status: string) => {
     setTask((prev) => [...prev, { title, status }]);
   };

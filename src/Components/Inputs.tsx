@@ -31,7 +31,9 @@ export default function Inputs(
                             name="password"
                             autoComplete="current-password"
                             required
-                            className="block w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"
+                            className="block w-full px-4 py-3 text-gray-900 border border-gray-300 rounded-xl
+                             bg-gray-50/50 focus:bg-white focus:ring-2
+                             focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"
                             placeholder={placeholder}
                           />
                         </div>

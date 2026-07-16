@@ -5,7 +5,7 @@ import Dashboard from "../Layout/Dashbord"
 import Profile from "../Pages/Dashbord-page/Profile";
 import Signin from "../Pages/Auth-page/Signin"
 import Signup from "../Pages/Auth-page/Signup"
-
+import NotFound from "../Components/NotFound"
 
 export const router = createBrowserRouter([
   {
@@ -38,4 +38,8 @@ export const router = createBrowserRouter([
     
     ],
   },
+  {
+      path: "*",
+        element: <NotFound/>,
+  }
 ]);

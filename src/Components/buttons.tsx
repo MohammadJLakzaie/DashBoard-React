@@ -8,7 +8,6 @@ export default function Buttons (
    {onClick , name , className}  : ButtonProps 
 ) {
     return(
-    
                 <button
                 onClick={onClick}
                   type="button"
@@ -17,4 +16,4 @@ export default function Buttons (
                 >{name}</button>
               
               )
-}
+} 

@@ -1,45 +1,43 @@
 import { createBrowserRouter } from "react-router-dom";
 import AuthLayout from "../Layout/AuthLayout";
-import Home from "../Pages/Dashbord-page/Home" ;
-import Dashboard from "../Layout/Dashbord"
+import Home from "../Pages/Dashbord-page/Home";
+import Dashboard from "../Layout/Dashbord";
 import Profile from "../Pages/Dashbord-page/Profile";
-import Signin from "../Pages/Auth-page/Signin"
-import Signup from "../Pages/Auth-page/Signup"
-import NotFound from "../Components/NotFound"
+import Signin from "../Pages/Auth-page/Signin";
+import Signup from "../Pages/Auth-page/Signup";
+import NotFound from "../Pages/Dashbord-page/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <AuthLayout/>,
+    element: <AuthLayout />,
     children: [
       {
         path: "/",
-        element: <Signin/>,
+        element: <Signin />,
       },
       {
         path: "signup",
-        element: <Signup/>,
+        element: <Signup />,
       },
-    
     ],
   },
   {
     path: "/app",
-    element: <Dashboard/>,
+    element: <Dashboard />,
     children: [
       {
         path: "home",
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "profile",
-        element: <Profile/>,
+        element: <Profile />,
       },
-    
     ],
   },
   {
-      path: "*",
-        element: <NotFound/>,
-  }
+    path: "*",
+    element: <NotFound />,
+  },
 ]);

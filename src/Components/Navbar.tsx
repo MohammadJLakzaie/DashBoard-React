@@ -50,7 +50,7 @@ export default function Navbar() {
             🔍
           </button>
           <button className="p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
-            ❓
+            📤
           </button>
           <button className="p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
             ⚙️

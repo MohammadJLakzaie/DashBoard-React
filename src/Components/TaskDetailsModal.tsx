@@ -15,7 +15,7 @@ export default function TaskDetailsModal ({funcClose , title} : TaskDetailsModal
             {title}
           </h2>
           {/* close button */}
-       <Buttons onClick={funcClose}  name="خروج" className={"shrink-0 rounded-md p-1.5 text-gray-600 hover:bg-gray-100 hover:text-gray-800 transition-colors"}/>
+       <Buttons onClick={funcClose}  name="خروج" width="shrink-0" color="text-gray-600 hover:bg-gray-100 hover:text-gray-800 " />
         </div>
 
         {/* Body */}

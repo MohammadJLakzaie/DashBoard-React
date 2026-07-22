@@ -2,6 +2,7 @@ type InputProps = {
   type: string;
   placeholder: string;
   label?: string;
+  onClick? : Function
 };
 
 export default function Inputs(
@@ -10,6 +11,7 @@ export default function Inputs(
   type,
   placeholder,
   label,
+  onClick
 }: InputProps
 
 ) {

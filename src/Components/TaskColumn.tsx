@@ -3,6 +3,7 @@ import TaskCard from "./TaskCard";
 import Buttons from "./Buttons";
 import type { taskType } from "../Types/Types";
 import type { taskColumnProps } from "../Types/Types";
+import Inputs from "./Inputs";
 
 
 export default function TaskColumn({
@@ -53,9 +54,8 @@ export default function TaskColumn({
             <Buttons
               name={"+ افزودن کارت"}
               onClick={() => handleAddCard(open)}
-              className={
-                "w-full rounded-lg border border-dashed border-slate-300 py-2 text-s text-slate-600 hover:bg-slate-200 transition "
-              }
+              width="w-full"
+              color="rounded-lg border border-dashed border-slate-300 py-2 text-s text-slate-600 hover:bg-slate-200 transition "
             />
           </div>
         )}
@@ -88,20 +88,18 @@ focus:border-indigo-500
 focus:ring-2
 focus:ring-indigo-100"
             />
-
+            
             <div className="flex flex-row gap-2">
               <Buttons
                 name={"تایید"}
-                className={
-                  "w-full rounded-lg bg-indigo-600 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
-                }
+                width="w-full"
+                color="bg-indigo-600 text-white hover:bg-indigo-700"
                 onClick={() => write()}
               />
               <Buttons
                 name={"لغو"}
-                className={
-                  "w-full rounded-lg bg-orange-600 py-2 text-sm font-medium text-white transition hover:bg-orange-700"
-                }
+                width="w-full"
+                color="bg-orange-600 text-white hover:bg-orange-700"
                 onClick={() => handleAddCard(open)}
               />
             </div>

@@ -58,8 +58,8 @@ export default function Signin() {
                    />
               </div>
             {/* button from Components*/}
-              <Buttons onClick={() => navigate("/app") } name="ورود" className={"group relative w-full flex justify-center py-3 px-4 mt-2 border border-transparent text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-md transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"} />
-              <Buttons onClick={() => navigate("/signup") } name="اکانت ندارید؟ ثبت نام کنید" className={"group relative w-full flex justify-center py-3 px-4 mt-2 border border-transparent text-sm font-semibold rounded-xl text-black bg-indigo-100 hover:ring-sky-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 shadow-md transition-all duration-200 transform hover:scale-[1.01] active:scale-[0.99]"} />
+              <Buttons onClick={() => navigate("/app") } name="ورود" width='w-full' color=' text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
+              <Buttons onClick={() => navigate("/signup") } name="اکانت ندارید؟ ثبت نام کنید"  width='w-full' color='text-black bg-indigo-100 hover:ring-sky-300 focus:ring-sky-300 '/>
             </form>
           </div>
         </div>

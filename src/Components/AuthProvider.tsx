@@ -8,7 +8,7 @@ const AuthContext = createContext<User | null>(null);
 
 type AuthProviderProps = PropsWithChildren & {
   isSignedIn?: boolean;
-};
+}
 
 export default function AuthProvider({
   children,

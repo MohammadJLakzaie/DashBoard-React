@@ -2,7 +2,8 @@ type InputProps = {
   type: string;
   placeholder: string;
   label?: string;
-  onClick? : Function
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function Inputs(
@@ -11,7 +12,8 @@ export default function Inputs(
   type,
   placeholder,
   label,
-  onClick
+  value, 
+  onChange,
 }: InputProps
 
 ) {
@@ -28,6 +30,8 @@ export default function Inputs(
                         </label>
                         <div className="relative">
                           <input
+                          onChange={onChange}
+                          value={value}
                             type={type}
                             id={type}
                             name="password"

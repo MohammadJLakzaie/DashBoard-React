@@ -1,7 +1,30 @@
 import Buttons from '../../Components/Buttons' ;
 import Inputs from '../../Components/Inputs' 
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 export default function Signin() {
+
+const fakeUser = {
+  email: "admin@gmail.com",
+  password: "123456",
+};
+
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+
+const signInValidation = () => {
+  if (
+  email === fakeUser.email &&
+  password === fakeUser.password
+) {
+    navigate("/app")
+} else {
+  alert('your login is Invalid') ;
+  console.log(email)
+}
+}
+
  const navigate = useNavigate();
     return(
             <div className="w-full max-w-md bg-white/75 rounded-2xl lg:mx-60 shadow-card overflow-hidden transition-all duration-300 hover:shadow-2xl">
@@ -39,8 +62,8 @@ export default function Signin() {
             {/* Form */}
             <form id="signinForm" className="space-y-6"  method="POST">
              
-             <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری " />
-             <Inputs type="password"   placeholder="••••••••"  label="پسورد"/>
+             <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری "   value={email}   onChange={(e) => setEmail(e.target.value)} />
+             <Inputs type="password"   placeholder="••••••••"  label="پسورد"   value={password}   onChange={(e) => setPassword(e.target.value)}/>
 
             <div className="flex justify-end items-center gap-3">
             <label
@@ -58,7 +81,7 @@ export default function Signin() {
                    />
               </div>
             {/* button from Components*/}
-              <Buttons onClick={() => navigate("/app") } name="ورود" width='w-full' color=' text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
+              <Buttons onClick={() => signInValidation() } name="ورود" width='w-full' color=' text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
               <Buttons onClick={() => navigate("/signup") } name="اکانت ندارید؟ ثبت نام کنید"  width='w-full' color='text-black bg-indigo-100 hover:ring-sky-300 focus:ring-sky-300 '/>
             </form>
           </div>

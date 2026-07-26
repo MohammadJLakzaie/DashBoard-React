@@ -4,24 +4,28 @@ import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 export default function Signin() {
 
+
+  // fake user and password
 const fakeUser = {
   email: "admin@gmail.com",
   password: "123456",
 };
 
+//usestate for username and password
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
-
+//user and password validation
 const signInValidation = () => {
-  if (
+  if ( // if true , navigate to dashboard and set user to loggedIn
   email === fakeUser.email &&
   password === fakeUser.password
 ) {
-    navigate("/app")
-} else {
+    navigate("/app") ;
+    localStorage.setItem("isLoggedIn", "true");
+} else { // if false , return an alert
   alert('your login is Invalid') ;
-  console.log(email)
+
 }
 }
 

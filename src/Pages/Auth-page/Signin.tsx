@@ -2,9 +2,13 @@ import Buttons from '../../Components/Buttons' ;
 import Inputs from '../../Components/Inputs' 
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+
+
+
+
+
 export default function Signin() {
-
-
+  
   // fake user and password
 const fakeUser = {
   email: "admin@gmail.com",
@@ -22,7 +26,7 @@ const signInValidation = () => {
   password === fakeUser.password
 ) {
     navigate("/app") ;
-    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem( "user", JSON.stringify({ email: fakeUser.email, isLoggedIn: true,}));
 } else { // if false , return an alert
   alert('your login is Invalid') ;
 

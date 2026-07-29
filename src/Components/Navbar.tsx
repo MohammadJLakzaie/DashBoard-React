@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-
+import { useNavigate } from "react-router-dom";
+import Buttons from "./Buttons"
 import { NavLink } from "react-router-dom";
 const NAV_ITEMS = ["داشبورد", "جریان داده", "تحلیل ها", "کاربران"];
 
@@ -13,10 +13,17 @@ export default function Navbar() {
     setMenuOpen(false); // close menu after click on mobile
   };
 
+  const navigate = useNavigate();
+  const HandleExit = () => {
+    navigate('/') ;
+    localStorage.setItem( "isLoggedIn", "false");
+  }
+
+
   return (
     <nav className="bg-indigo-600 shadow-lg w-full">
       {/* Top bar */}
-      <div className="flex items-center justify-between h-11 px-4">
+      <div className="flex items-center justify-between h-14 px-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded bg-white/20 flex items-center justify-center">
@@ -52,9 +59,7 @@ export default function Navbar() {
           <button className="p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
             📤
           </button>
-          <button className="p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
-            ⚙️
-          </button>
+          <Buttons name={'خروج'} width={'shrink-0'} onClick={() => HandleExit()} color={'mb-2 border-red-200 bg-indigo-600 px-4 py-2 text-sm font-medium text-black-600 hover:bg-red-700 '}/>
 
           {/* Hamburger button - visible only on mobile */}
           <button

@@ -26,7 +26,7 @@ const signInValidation = () => {
   password === fakeUser.password
 ) {
     navigate("/app") ;
-    localStorage.setItem( "user", JSON.stringify({ email: fakeUser.email, isLoggedIn: true,}));
+    localStorage.setItem( "isLoggedIn", "true");
 } else { // if false , return an alert
   alert('your login is Invalid') ;
 

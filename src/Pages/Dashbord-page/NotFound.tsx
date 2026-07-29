@@ -25,7 +25,8 @@ export default function NotFound() {
           <Buttons
             name="بازگشت به صفحه ورود"
             onClick={() => navigate("/")}
-            className="w-full rounded-lg bg-indigo-700 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-indigo-800 hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+            width="w-full"
+            color="bg-indigo-700 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-indigo-800"
           />
         </div>
       </div>

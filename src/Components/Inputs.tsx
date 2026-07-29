@@ -2,8 +2,8 @@ type InputProps = {
   type: string;
   placeholder: string;
   label?: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function Inputs(

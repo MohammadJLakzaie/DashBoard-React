@@ -8,7 +8,7 @@ export default function Signup() {
           <div className="px-4 py-6 sm:px-8 sm:py-10">
             {/* Logo area */}
             <div className="flex justify-start items-center gap-2 mb-6">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-700 shadow-md">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-r from-indigo-500 to-indigo-700 shadow-md">
                 <svg
                   className="h-5 w-5 text-white"
                   viewBox="0 0 24 24"
@@ -39,7 +39,7 @@ export default function Signup() {
             {/* Form */}
             <form id="signinForm" className="space-y-6"  method="POST">
              
-             <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید "  label="نام کاربری " />
+             <Inputs  type="text"   placeholder="نام کاربری خود راوارد کنید"  label="نام کاربری " />
              <Inputs type="password"   placeholder="••••••••"  label="پسورد"/>
              <Inputs type="password"   placeholder="••••••••"  label="تایید پسورد"/>
 

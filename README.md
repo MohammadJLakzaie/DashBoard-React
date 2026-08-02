@@ -1,75 +1,184 @@
-# React + TypeScript + Vite
+# 📋 Task Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Task Management Web Application** inspired by Trello, built with **React**, **TypeScript**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+The project focuses on building a scalable React application while practicing modern frontend development concepts such as authentication, routing, reusable components, state management, and REST API integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### 🔐 Authentication
 
-Note: This will impact Vite dev & build performances.
+* Sign In
+* Sign Up
+* Protected Routes
+* LocalStorage Authentication
+* Logout
 
-## Expanding the ESLint configuration
+### 📊 Dashboard
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Responsive Layout
+* Sidebar Navigation
+* Top Navigation
+* Clean UI
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📌 Task Board
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Kanban-style task management inspired by Trello.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Current features:
+
+* Create Task Cards
+* Delete Task Cards
+* Multiple Task Columns
+* Responsive Layout
+
+Currently in development:
+
+* Drag & Drop
+* Move Tasks Between Columns
+* Edit Tasks
+* Task Persistence
+
+### 👤 Profile
+
+* Fetch user data from Fake REST API
+* Display user information
+* Loading State
+* Error Handling
+
+---
+
+## 🛠 Tech Stack
+
+| Technology   | Purpose        |
+| ------------ | -------------- |
+| React        | UI Library     |
+| TypeScript   | Type Safety    |
+| React Router | Routing        |
+| Tailwind CSS | Styling        |
+| Vite         | Build Tool     |
+| Fetch API    | HTTP Requests  |
+| LocalStorage | Authentication |
+
+---
+
+## 📁 Project Structure
+
+```text
+src
+│
+├── assets/
+│
+├── components/
+│   ├── Button.tsx
+│   ├── Input.tsx
+│   ├── Loader.tsx
+│   ├── Navbar.tsx
+│   ├── ProtectedRoute.tsx
+│   └── Sidebar.tsx
+│
+├── layouts/
+│   ├── AuthLayout.tsx
+│   └── Dashboard.tsx
+│
+├── pages/
+│   ├── auth/
+│   │   ├── SignIn.tsx
+│   │   └── SignUp.tsx
+│   │
+│   └── dashboard/
+│       ├── Home.tsx
+│       ├── Profile.tsx
+│       └── NotFound.tsx
+│
+├── router/
+│   └── router.tsx
+│
+├── types/
+│
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository
+
+```bash
+git clone <repository-url>
 ```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 🎯 Learning Objectives
+
+This project is being developed to gain practical experience with:
+
+* Component-based architecture
+* React Router
+* Protected Routes
+* REST API Integration
+* Fetch API
+* State Management
+* Reusable Components
+* TypeScript
+* Responsive Design
+* Clean Project Structure
+
+---
+
+## 🚧 Roadmap
+
+* [x] Authentication
+* [x] Protected Routes
+* [x] Dashboard Layout
+* [x] User Profile
+* [x] API Integration
+* [x] Loading State
+* [ ] Drag & Drop
+* [ ] Task Editing
+* [ ] Task Status Management
+* [ ] Context API
+* [ ] Persistent Storage
+* [ ] Search & Filter
+* [ ] Dark Mode
+
+---
+
+## 📸 Screenshots
+
+
+
+<img width="1920" height="925" alt="Annotation 2026-08-02 135627" src="https://github.com/user-attachments/assets/0ddffa0d-51bc-4ed7-92e8-812475976477" />
+
+
+
+
+<img width="1920" height="978" alt="Annotation 2026-08-02 135531" src="https://github.com/user-attachments/assets/47e681b3-d4ef-4057-b179-e9d312925b26" />
+
+
+---
+
+## 👨‍💻 Author
+
+**Mohammad Javad Lakzaie**
+
+GitHub: https://github.com/MohammadJLakzaie
+
+LinkedIn: https://www.linkedin.com/in/mohammad-javad-lakzaie-b19457395/

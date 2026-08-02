@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ErrorBox from "../../Components/ErrorBox";
+import Loader from "../../Components/Loader";
 
 
 type User = {
@@ -15,6 +16,7 @@ export default function Profile() {
 
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState(false);
+  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getUser() {
@@ -34,6 +36,8 @@ export default function Profile() {
         console.log(`this is the Error ${error}`);
         setError(true);
 
+      } finally{
+        setLoading(false)
       }
     }
 
@@ -46,6 +50,8 @@ export default function Profile() {
       <div className="bg-white rounded-2xl shadow-md w-full max-w-md p-6">
           {/* محل نمایش ارور Cant fetch */}
         {error && (<ErrorBox message="عدم اتصال به سرور"/>)}
+        {Loading && (<Loader/>)}
+
         <br />
         {/* عکس پروفایل (placeholder) */}
         <div className="flex justify-center mb-6">
@@ -87,9 +93,11 @@ export default function Profile() {
 
   <span className="text-gray-500 font-medium">:ایمیل</span>
 </div>
+
         </div>
       </div>
     </div>
+    
   );
   
 }

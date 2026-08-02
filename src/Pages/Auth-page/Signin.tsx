@@ -2,6 +2,7 @@ import Buttons from '../../Components/Buttons' ;
 import Inputs from '../../Components/Inputs' 
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import ErrorBox from '../../Components/ErrorBox';
 
 
 
@@ -18,6 +19,7 @@ const fakeUser = {
 //usestate for username and password
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
+const [status, setStatus] = useState(true)
 
 //user and password validation
 const signInValidation = () => {
@@ -28,8 +30,7 @@ const signInValidation = () => {
     navigate("/app") ;
     localStorage.setItem( "isLoggedIn", "true");
 } else { // if false , return an alert
-  alert('your login is Invalid') ;
-
+  setStatus(false) ; 
 }
 }
 
@@ -92,6 +93,8 @@ const signInValidation = () => {
               <Buttons onClick={() => signInValidation() } name="ورود" width='w-full' color=' text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
               <Buttons onClick={() => navigate("/signup") } name="اکانت ندارید؟ ثبت نام کنید"  width='w-full' color='text-black bg-indigo-100 hover:ring-sky-300 focus:ring-sky-300 '/>
             </form>
+            <br />
+              {!status && (<ErrorBox message='نام کاربری یا رمز عبور اشتباه است '/>)}
           </div>
         </div>
     )

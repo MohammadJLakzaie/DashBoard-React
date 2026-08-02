@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 type User = {
   firstName: string;
+  lastName : string ; 
   email: string ; 
   birthDate : string ; 
-  age : Number ; 
+  age : number ; 
   image : string ; 
 };
 

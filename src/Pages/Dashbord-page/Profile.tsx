@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import ErrorBox from "../../Components/ErrorBox";
+
 
 type User = {
   firstName: string;
@@ -12,18 +14,26 @@ type User = {
 export default function Profile() {
 
   const [user, setUser] = useState<User | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function getUser() {
       try {
         const response = await fetch("https://dummyjson.com/users/1");
 
+          if (!response.ok) {
+        throw new Error("Failed to fetch user");
+      }
+
         const data: User = await response.json();
 
         setUser(data);
         console.log(data)
+        {}
       } catch (error) {
-        console.log(error);
+        console.log(`this is the Error ${error}`);
+        setError(true);
+
       }
     }
 
@@ -34,6 +44,9 @@ export default function Profile() {
   return (
         <div className="min-h-screen bg-gray-100 flex items-start justify-center p-4">
       <div className="bg-white rounded-2xl shadow-md w-full max-w-md p-6">
+          {/* محل نمایش ارور Cant fetch */}
+        {error && (<ErrorBox message="عدم اتصال به سرور"/>)}
+        <br />
         {/* عکس پروفایل (placeholder) */}
         <div className="flex justify-center mb-6">
           <div className="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center">

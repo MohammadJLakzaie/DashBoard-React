@@ -12,7 +12,7 @@ export default function Signin() {
   
   // fake user and password
 const fakeUser = {
-  email: "admin@gmail.com",
+  email: "admin@gmail.com" ,
   password: "123456",
 };
 
@@ -90,7 +90,7 @@ const signInValidation = () => {
                    />
               </div>
             {/* button from Components*/}
-              <Buttons onClick={() => signInValidation() } name="ورود" width='w-full' color=' text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
+              <Buttons onClick={() => signInValidation() } name="ورود" width='w-full' color='text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
               <Buttons onClick={() => navigate("/signup") } name="اکانت ندارید؟ ثبت نام کنید"  width='w-full' color='text-black bg-indigo-100 hover:ring-sky-300 focus:ring-sky-300 '/>
             </form>
             <br />

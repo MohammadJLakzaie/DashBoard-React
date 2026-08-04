@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ErrorBox from "../../Components/ErrorBox";
 import Loader from "../../Components/Loader";
-
+import Buttons from "../../Components/Buttons"
 
 type User = {
   firstName: string;
@@ -31,7 +31,7 @@ export default function Profile() {
 
         setUser(data);
         console.log(data)
-        {}
+        
       } catch (error) {
         console.log(`this is the Error ${error}`);
         setError(true);
@@ -93,6 +93,8 @@ export default function Profile() {
 
   <span className="text-gray-500 font-medium">:ایمیل</span>
 </div>
+
+<Buttons name='ویرایش اطلاعات' color="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" width="w-full" />
 
         </div>
       </div>

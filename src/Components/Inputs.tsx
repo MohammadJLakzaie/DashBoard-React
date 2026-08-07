@@ -1,6 +1,6 @@
 type InputProps = {
   type: string;
-  placeholder: string;
+  placeholder?: string;
   label?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

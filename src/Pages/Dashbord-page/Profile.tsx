@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ErrorBox from "../../Components/ErrorBox";
 import Loader from "../../Components/Loader";
-import Buttons from "../../Components/Buttons"
+import Buttons from "../../Components/Buttons" ;
+import EditProfileModal from "../../Components/EditProfileModal"
 
 type User = {
   firstName: string;
@@ -17,6 +18,7 @@ export default function Profile() {
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState(false);
   const [Loading, setLoading] = useState(true);
+  const [isEditProfile, setIsEditProfile] = useState(false);
 
   useEffect(() => {
     async function getUser() {
@@ -44,6 +46,10 @@ export default function Profile() {
     getUser();
   }, []);
 
+  const closeEditProfile = () => {
+    setIsEditProfile(false)
+  }
+
 
   return (
         <div className="min-h-screen bg-gray-100 flex items-start justify-center p-4">
@@ -51,6 +57,7 @@ export default function Profile() {
           {/* محل نمایش ارور Cant fetch */}
         {error && (<ErrorBox message="عدم اتصال به سرور"/>)}
         {Loading && (<Loader/>)}
+        {isEditProfile && (<EditProfileModal  formData={user} funcClose={closeEditProfile}/>)}
 
         <br />
         {/* عکس پروفایل (placeholder) */}
@@ -94,7 +101,7 @@ export default function Profile() {
   <span className="text-gray-500 font-medium">:ایمیل</span>
 </div>
 
-<Buttons name='ویرایش اطلاعات' color="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" width="w-full" />
+<Buttons name='ویرایش اطلاعات' color="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" width="w-full" onClick={() => {setIsEditProfile(true)} }/>
 
         </div>
       </div>

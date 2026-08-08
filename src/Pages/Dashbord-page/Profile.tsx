@@ -57,7 +57,7 @@ export default function Profile() {
           {/* محل نمایش ارور Cant fetch */}
         {error && (<ErrorBox message="عدم اتصال به سرور"/>)}
         {Loading && (<Loader/>)}
-        {isEditProfile && (<EditProfileModal  formData={user} funcClose={closeEditProfile}/>)}
+        {isEditProfile && (<EditProfileModal  formData={user} funcClose={closeEditProfile} />)}
 
         <br />
         {/* عکس پروفایل (placeholder) */}
@@ -101,7 +101,7 @@ export default function Profile() {
   <span className="text-gray-500 font-medium">:ایمیل</span>
 </div>
 
-<Buttons name='ویرایش اطلاعات' color="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" width="w-full" onClick={() => {setIsEditProfile(true)} }/>
+<Buttons name='ویرایش اطلاعات' color={`text-white ${Loading || error ? "bg-stone-500 hover:bg-stone-500" : "bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" }`} width="w-full" onClick={() => {setIsEditProfile(true)} } disabled={Loading || error} />
 
         </div>
       </div>

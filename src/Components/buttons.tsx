@@ -3,13 +3,15 @@ type ButtonProps ={
   name?:string ;
   width : string ; 
   color : string ; 
+  disabled? : boolean ; 
 }
 
 export default function Buttons (
-   {onClick , name , width , color }  : ButtonProps 
+   {onClick , name , width , color , disabled }  : ButtonProps 
 ) {
     return(
                 <button
+                disabled={disabled}
                 onClick={onClick}
                   type="button"
                   className={`group relative ${width} ${color} flex justify-center py-3

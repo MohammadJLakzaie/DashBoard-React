@@ -1,7 +1,39 @@
+import { useState } from "react";
 import Inputs from "./Inputs";
 import Buttons from "./Buttons";
+import ErrorBox from "./ErrorBox";
 
-export default function EditProfileModal({funcClose , formData , getData} ) {
+export default function EditProfileModal({funcClose , formData  , setFormData } ) {
+const [updateError, setUpdateError] = useState(false);
+const [updateSuccess, setUpdateSuccess] = useState(false);
+
+const updateUser = async () => {
+  try {
+    const response = await fetch(
+      "https://dummyjson.com/users/1",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+        if (!response.ok) {
+        throw new Error("Failed to fetch user");
+      }
+
+    const updatedUser = await response.json();
+    
+    console.log(updatedUser);
+    funcClose()
+  } catch (error) {
+    console.log(error);
+    setUpdateError(true)
+  }
+};
+
+
   return (
     <div
       dir="rtl"
@@ -9,6 +41,7 @@ export default function EditProfileModal({funcClose , formData , getData} ) {
       <div className="flex w-full max-w-md max-h-[95vh] flex-col rounded-2xl bg-white shadow-xl overflow-auto">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+          
           <h2 className="text-lg font-semibold text-slate-800">
             ویرایش پروفایل
           </h2>
@@ -16,28 +49,29 @@ export default function EditProfileModal({funcClose , formData , getData} ) {
         </div>
 
         {/* Body */}
+        {updateError && (<ErrorBox message="عملیات ناموفق بود"/>)}
         <div className="space-y-5 px-6 py-6">
-          <Inputs type="text" label="نام" value={formData.firstName}   onChange={(event) => { getData(event.target.value);  }}/>
-          <Inputs type="text" label="نام خانوادگی" value={formData.lastName} />
-          <Inputs type="text" label="سن" value={formData.age} />
-          <Inputs type="text" label="تاریخ تولد" value={formData.birthDate} />
-          <Inputs type="email" label="ایمیل" value={formData.email} />
+          <Inputs type="text" label="نام" value={formData.firstName}   onChange={(event) => { setFormData({...formData , firstName: event.target.value})  }}/>
+          <Inputs type="text" label="نام خانوادگی" value={formData.lastName} onChange={(event) => { setFormData({...formData , lastName: event.target.value})  }} />
+          <Inputs type="text" label="سن" value={formData.age} onChange={(event) => { setFormData({...formData , age: event.target.value})  }} />
+          <Inputs type="text" label="تاریخ تولد" value={formData.birthDate} onChange={(event) => { setFormData({...formData , birthDate: event.target.value})  }}/>
+          <Inputs type="email" label="ایمیل" value={formData.email} onChange={(event) => { setFormData({...formData , email: event.target.value})  }}/>
         </div>
 
         {/* Footer */}
         <div className="flex gap-3 border-t border-slate-200 px-6 py-4">
            <Buttons
             name="ذخیره تغییرات"
-            onClick={() => {}}
+            onClick={() => {updateUser()}}
             width="w-full"
             color="bg-indigo-600 py-3 text-white hover:bg-indigo-700"
           />
-          <Buttons
+          {/* <Buttons
             name="انصراف"
             onClick={() => {}}
             width="w-full"
             color="border-slate-300  text-slate-600  hover:bg-slate-100"
-          />
+          /> */}
         </div>
       </div>
     </div>

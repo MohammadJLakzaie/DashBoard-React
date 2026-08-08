@@ -50,14 +50,13 @@ export default function Profile() {
     setIsEditProfile(false)
   }
 
-
   return (
         <div className="min-h-screen bg-gray-100 flex items-start justify-center p-4">
       <div className="bg-white rounded-2xl shadow-md w-full max-w-md p-6">
           {/* محل نمایش ارور Cant fetch */}
         {error && (<ErrorBox message="عدم اتصال به سرور"/>)}
         {Loading && (<Loader/>)}
-        {isEditProfile && (<EditProfileModal  formData={user} funcClose={closeEditProfile} />)}
+        {isEditProfile && (<EditProfileModal  formData={user} setFormData={setUser} funcClose={closeEditProfile} />)}
 
         <br />
         {/* عکس پروفایل (placeholder) */}

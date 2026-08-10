@@ -1,13 +1,16 @@
 import { useState } from "react";
 import Inputs from "./Inputs";
 import Buttons from "./Buttons";
-import ErrorBox from "./ErrorBox";
+import ErrorSuccess from "./ErrorSuccess";
 
 export default function EditProfileModal({funcClose , formData  , setFormData } ) {
 const [updateError, setUpdateError] = useState(false);
-const [updateSuccess, setUpdateSuccess] = useState(false);
+// const [updateSuccess, setUpdateSuccess] = useState(false);
 
-const updateUser = async () => {
+
+
+const updateUser = async (e: React.SubmitEvent) => {
+  e.preventDefault();
   try {
     const response = await fetch(
       "https://dummyjson.com/users/1",
@@ -49,8 +52,9 @@ const updateUser = async () => {
         </div>
 
         {/* Body */}
-        {updateError && (<ErrorBox message="عملیات ناموفق بود"/>)}
-        <div className="space-y-5 px-6 py-6">
+        {updateError && (<ErrorSuccess message="عملیات ناموفق بود" color="bg-red-50 border border-red-300 text-red-700"/>)}
+       <form action="#" onSubmit={updateUser}>
+ <div className="space-y-5 px-6 py-6">
           <Inputs type="text" label="نام" value={formData.firstName}   onChange={(event) => { setFormData({...formData , firstName: event.target.value})  }}/>
           <Inputs type="text" label="نام خانوادگی" value={formData.lastName} onChange={(event) => { setFormData({...formData , lastName: event.target.value})  }} />
           <Inputs type="text" label="سن" value={formData.age} onChange={(event) => { setFormData({...formData , age: event.target.value})  }} />
@@ -62,17 +66,13 @@ const updateUser = async () => {
         <div className="flex gap-3 border-t border-slate-200 px-6 py-4">
            <Buttons
             name="ذخیره تغییرات"
-            onClick={() => {updateUser()}}
+            // onClick={() => {updateUser()}}
             width="w-full"
             color="bg-indigo-600 py-3 text-white hover:bg-indigo-700"
+            type="submit"
           />
-          {/* <Buttons
-            name="انصراف"
-            onClick={() => {}}
-            width="w-full"
-            color="border-slate-300  text-slate-600  hover:bg-slate-100"
-          /> */}
         </div>
+       </form>
       </div>
     </div>
   );

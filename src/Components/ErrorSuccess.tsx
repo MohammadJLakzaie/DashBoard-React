@@ -1,12 +1,13 @@
-type ErrorBoxProps = {
+type ErrorSuccessProps = {
   message: string;
+  color : string ; 
 };
 
-export default function ErrorBox({ message }: ErrorBoxProps) {
+export default function ErrorSuccess({ message  , color}: ErrorSuccessProps) {
   return (
     <div
       dir="rtl"
-      className="animate-fade-in flex items-center gap-2.5 bg-red-50 border border-red-300 text-red-700 rounded-xl px-4 py-3 shadow-sm max-w-md"
+      className={`animate-fade-in flex items-center gap-2.5 ${color} rounded-xl px-4 py-3 shadow-sm max-w-md`}
     >
       <svg
         className="w-5 h-5 shrink-0 text-red-500"

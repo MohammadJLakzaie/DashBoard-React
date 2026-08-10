@@ -60,7 +60,7 @@ export default function Sidebar() {
           <li>
             <NavLink
               to="home"
-              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-bold text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors hover:text-white hover:bg-indigo-600 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 active:bg-indigo-700"
             >
               خانه
             </NavLink>
@@ -69,7 +69,7 @@ export default function Sidebar() {
           <li>
             <NavLink
               to="/app/profile"
-              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors hover:text-white hover:bg-indigo-600 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 active:bg-indigo-700"
             >
               پروفایل
             </NavLink>

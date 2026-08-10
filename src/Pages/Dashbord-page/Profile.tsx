@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
-import ErrorBox from "../../Components/ErrorBox";
+import ErrorSuccess from "../../Components/ErrorSuccess";
 import Loader from "../../Components/Loader";
-import Buttons from "../../Components/Buttons" ;
-import EditProfileModal from "../../Components/EditProfileModal"
+import Buttons from "../../Components/Buttons";
+import EditProfileModal from "../../Components/EditProfileModal";
 
 type User = {
   firstName: string;
-  lastName : string ; 
-  email: string ; 
-  birthDate : string ; 
-  age : number ; 
-  image : string ; 
+  lastName: string;
+  email: string;
+  birthDate: string;
+  age: number;
+  image: string;
 };
 
 export default function Profile() {
-
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState(false);
   const [Loading, setLoading] = useState(true);
@@ -25,21 +24,19 @@ export default function Profile() {
       try {
         const response = await fetch("https://dummyjson.com/users/1");
 
-          if (!response.ok) {
-        throw new Error("Failed to fetch user");
-      }
+        if (!response.ok) {
+          throw new Error("Failed to fetch user");
+        }
 
         const data: User = await response.json();
 
         setUser(data);
-        console.log(data)
-        
+        console.log(data);
       } catch (error) {
         console.log(`this is the Error ${error}`);
         setError(true);
-
-      } finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -47,16 +44,27 @@ export default function Profile() {
   }, []);
 
   const closeEditProfile = () => {
-    setIsEditProfile(false)
-  }
+    setIsEditProfile(false);
+  };
 
   return (
-        <div className="min-h-screen bg-gray-100 flex items-start justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex items-start justify-center p-4">
       <div className="bg-white rounded-2xl shadow-md w-full max-w-md p-6">
-          {/* محل نمایش ارور Cant fetch */}
-        {error && (<ErrorBox message="عدم اتصال به سرور"/>)}
-        {Loading && (<Loader/>)}
-        {isEditProfile && (<EditProfileModal  formData={user} setFormData={setUser} funcClose={closeEditProfile} />)}
+        {/* محل نمایش ارور Cant fetch */}
+        {error && (
+          <ErrorSuccess
+            message="عدم اتصال به سرور"
+            color="bg-red-50 border border-red-300 text-red-700"
+          />
+        )}
+        {Loading && <Loader />}
+        {isEditProfile && (
+          <EditProfileModal
+            formData={user}
+            setFormData={setUser}
+            funcClose={closeEditProfile}
+          />
+        )}
 
         <br />
         {/* عکس پروفایل (placeholder) */}
@@ -73,39 +81,50 @@ export default function Profile() {
         <div className="space-y-4">
           {/* اسم کاربر - از سرور میاد */}
           <div className="flex justify-between border-b border-gray-200 pb-2">
-            <span className="text-gray-800"><p>{user?.firstName} {user?.lastName}</p></span>
+            <span className="text-gray-800">
+              <p>
+                {user?.firstName} {user?.lastName}
+              </p>
+            </span>
             <span className="text-gray-500 font-medium">:نام</span>
           </div>
 
           {/* سن کاربر - از سرور میاد */}
           <div className="flex justify-between border-b border-gray-200 pb-2">
-            <span className="text-gray-800"><p>{user?.age}</p></span>
+            <span className="text-gray-800">
+              <p>{user?.age}</p>
+            </span>
             <span className="text-gray-500 font-medium">:سن</span>
           </div>
 
           {/* سال تولد - از سرور میاد */}
           <div className="flex justify-between border-b border-gray-200 pb-2">
-            <span className="text-gray-800"><p>{user?.birthDate}</p></span>
+            <span className="text-gray-800">
+              <p>{user?.birthDate}</p>
+            </span>
             <span className="text-gray-500 font-medium">:سال تولد</span>
           </div>
 
           {/* ایمیل کاربر - از سرور میاد */}
           <div className="flex justify-between pb-2">
-  <span className="min-w-0">
-   <p className="break-all">
-      {user?.email}
-    </p>
-  </span>
+            <span className="min-w-0">
+              <p className="break-all">{user?.email}</p>
+            </span>
 
-  <span className="text-gray-500 font-medium">:ایمیل</span>
-</div>
+            <span className="text-gray-500 font-medium">:ایمیل</span>
+          </div>
 
-<Buttons name='ویرایش اطلاعات' color={`text-white ${Loading || error ? "bg-stone-500 hover:bg-stone-500" : "bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" }`} width="w-full" onClick={() => {setIsEditProfile(true)} } disabled={Loading || error} />
-
+          <Buttons
+            name="ویرایش اطلاعات"
+            color={`text-white ${Loading || error ? "bg-stone-500 hover:bg-stone-500" : "bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500"}`}
+            width="w-full"
+            onClick={() => {
+              setIsEditProfile(true);
+            }}
+            disabled={Loading || error}
+          />
         </div>
       </div>
     </div>
-    
   );
-  
 }

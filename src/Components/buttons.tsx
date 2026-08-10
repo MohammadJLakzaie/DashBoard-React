@@ -1,19 +1,20 @@
 type ButtonProps ={
-   onClick: () => void;
+   onClick?: () => void;
   name?:string ;
   width : string ; 
   color : string ; 
   disabled? : boolean ; 
+  type?: "button" | "submit" | "reset";
 }
 
 export default function Buttons (
-   {onClick , name , width , color , disabled }  : ButtonProps 
+   {onClick , name , width , color , disabled , type }  : ButtonProps 
 ) {
     return(
                 <button
                 disabled={disabled}
                 onClick={onClick}
-                  type="button"
+                  type={type}
                   className={`group relative ${width} ${color} flex justify-center py-3
                   px-4 mt-2 border border-transparent 
                   text-sm font-semibold rounded-xl  focus:outline-none focus:ring-2 

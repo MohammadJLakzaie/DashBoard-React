@@ -33,11 +33,11 @@ Current features:
 * Delete Task Cards
 * Multiple Task Columns
 * Responsive Layout
+*  Drag & Drop
+* Move Tasks Between Columns
 
 Currently in development:
 
-* Drag & Drop
-* Move Tasks Between Columns
 * Edit Tasks
 * Task Persistence
 

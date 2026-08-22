@@ -150,7 +150,7 @@ This project is being developed to gain practical experience with:
 * [x] User Profile
 * [x] API Integration
 * [x] Loading State
-* [ ] Drag & Drop
+* [x] Drag & Drop
 * [ ] Task Editing
 * [ ] Task Status Management
 * [ ] Context API

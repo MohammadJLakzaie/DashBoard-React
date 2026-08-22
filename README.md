@@ -11,7 +11,6 @@ The project focuses on building a scalable React application while practicing mo
 ### 🔐 Authentication
 
 * Sign In
-* Sign Up
 * Protected Routes
 * LocalStorage Authentication
 * Logout

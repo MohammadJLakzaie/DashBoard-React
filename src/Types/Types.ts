@@ -1,6 +1,7 @@
 export  type taskType = {
   title : string ;
   status : string ; 
+  id : string ; 
 } 
 export type columnType = {
   name: string;
@@ -15,7 +16,7 @@ export type taskColumnProps = {
 };
 
 export type TaskCardProps = {
-  Monotask: object;
+  Monotask: taskType;
   func : Function ; 
   
 };

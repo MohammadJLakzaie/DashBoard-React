@@ -3,7 +3,8 @@ import TaskCard from "./TaskCard";
 import Buttons from "./Buttons";
 import type { taskType } from "../Types/Types";
 import type { taskColumnProps } from "../Types/Types";
-import Inputs from "./Inputs";
+import { useDroppable } from '@dnd-kit/react';
+
 
 
 export default function TaskColumn({
@@ -26,17 +27,25 @@ export default function TaskColumn({
 
   const write = (): void => {
     if (note.trim() === "") return; // جلوگیری از اضافه کردن تسک خالی
-    onAddTask(note, column);
+    onAddTask(note, column );
     setNote(""); // پاک کردن اینپوت بعد از ثبت
     setOpen(false); // بستن فرم
   };
+  //make column drogable
+   const { ref  , isDropTarget  } = useDroppable({ id: column }); //column already has .status 
 
   return (
     <>
-      <section
+      <section 
+      ref={ref}
         // key={column.id}
-        className="flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full max-h-[80vh] overflow-y-auto"
-      >
+        className={`flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full max-h-[80vh] overflow-y-auto task-column ${isDropTarget ? 'drop-target-active' : ''}`}
+       style={{
+        backgroundColor: isDropTarget  ? '#e0f0ff' : 'transparent',
+        border: isDropTarget  ? '2px dashed #4a90d9' : '',
+        transition: 'all 0.2s ease'
+      }}
+     >
         {/* Header */}
         <div className="flex items-center justify-center p-4 border-b border-slate-200">
           <span className="font-semibold  text-slate-800">{name}</span>
@@ -44,8 +53,8 @@ export default function TaskColumn({
 
         {/* Cards Container */}
         <div className="flex-1 overflow-y-auto p-3 space-y-3">
-          {filteredTasks.map((task: taskType, index: number) => (
-            <TaskCard key={index} Monotask={task} func={funcOpen} />
+          {filteredTasks.map((task: taskType) => (
+            <TaskCard key={task.id} Monotask={task} func={funcOpen} />
           ))}
         </div>
         {/* Footer */}

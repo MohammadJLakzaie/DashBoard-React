@@ -60,22 +60,30 @@ export default function TaskBoard() {
   ]);
 
   const [close, setclose] = useState(false);
-  const [selectTask, setSelect] = useState("");
+  const [taskTilte, setTitle] = useState("");
+  const [taskId, setTaskId] = useState("");
 
   //this function will colse/open and set the TaskDetailsModal-Component 
 const handleClose = (t: taskType): void => {
   close ? setclose(false) : setclose(true);
 
-  setSelect(t.title);
-
+  setTitle(t.title);
+  setTaskId(t.id)
   console.log(t);
 };
 // save previos task and add another task
   const AddTask = (title: string, status: string ) => {
     setTask((prev) => [...prev, { title, status , id:crypto.randomUUID() }]);
   };
+  //Delete task
+  const deleteTask = (taskId : string) =>{
+     // a new Array that does not have that id
+  const updatedTasks = tasks.filter(task => task.id !== taskId);
+  setTask(updatedTasks); // update state
+    setclose(false)
+  }
 //Drag & Drop 
-   const handleDragEnd = (event) => {
+   const handleDragEnd = ( event ) => {
     // ۱. اطلاعات مبدأ و مقصد رو از event استخراج کن
  const { source, target } = event.operation;
     // ۲. اگر کاربر کارت رو بیرون از ستون‌ها رها کرده، کاری نکن
@@ -121,7 +129,7 @@ const handleClose = (t: taskType): void => {
           <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
       {close && (
         <div className="flex justify-center z-10">
-          <TaskDetailsModal funcClose={handleClose} title={selectTask} />
+          <TaskDetailsModal funcClose={handleClose} title={taskTilte} taskId={taskId} onDeleteTask={deleteTask}/>
         </div>
       )}
 

@@ -23,6 +23,8 @@ export type TaskCardProps = {
 export type TaskDetailsModalProps = {
   funcClose: Function ; 
   title : string ; 
+  onDeleteTask : Function ;
+  taskId : string ; 
 }
 export type NavItemTypes = {
   emoji : string ;

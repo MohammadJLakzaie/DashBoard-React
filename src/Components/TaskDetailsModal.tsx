@@ -3,7 +3,7 @@ import type {TaskDetailsModalProps} from "../Types/Types"
 
 
 
-export default function TaskDetailsModal ({funcClose , title} : TaskDetailsModalProps  ) {
+export default function TaskDetailsModal ({funcClose , title , taskId , onDeleteTask} : TaskDetailsModalProps  ) {
     return(
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20  p-4">
@@ -33,6 +33,7 @@ export default function TaskDetailsModal ({funcClose , title} : TaskDetailsModal
         {/* Footer / Actions */}
         <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-2 sm:gap-3 border-t border-gray-200 px-5 py-4 sm:px-6">
           <button
+          onClick={ () => {onDeleteTask (taskId)}}
             type="button"
             className="w-full sm:w-auto rounded-md border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-100 transition-colors"
           >

@@ -12,7 +12,7 @@ export default function TaskColumn({
   column,
   filteredTasks,
   onAddTask,
-  funcOpen,
+  funcOpen
 }: taskColumnProps) {
   const [open, setOpen] = useState(false);
   const handleAddCard = (open: boolean): void => {

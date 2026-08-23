@@ -151,6 +151,8 @@ This project is being developed to gain practical experience with:
 * [x] API Integration
 * [x] Loading State
 * [x] Drag & Drop
+* [x] Add Task
+* [x] Delete Task
 * [ ] Task Editing
 * [ ] Task Status Management
 * [ ] Context API

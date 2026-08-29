@@ -2,6 +2,7 @@ export  type taskType = {
   title : string ;
   status : string ; 
   id : string ; 
+  description : string ; 
 } 
 export type columnType = {
   name: string;
@@ -25,6 +26,8 @@ export type TaskDetailsModalProps = {
   title : string ; 
   onDeleteTask : Function ;
   taskId : string ; 
+  description : string ; 
+  setDescription : Function ; 
 }
 export type NavItemTypes = {
   emoji : string ;

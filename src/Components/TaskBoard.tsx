@@ -4,7 +4,7 @@ import type { taskType } from "../Types/Types";
 import TaskDetailsModal from "./TaskDetailsModal";
 import type {columnType} from "../Types/Types";
 import { DragDropProvider } from '@dnd-kit/react';
-
+import { PointerSensor, PointerActivationConstraints } from '@dnd-kit/dom';
 
 export default function TaskBoard() {
   const columns: columnType[] = [
@@ -30,57 +30,65 @@ export default function TaskBoard() {
     {
       title: "task1",
       status: "backlog",
-      id : crypto.randomUUID()
+      id : crypto.randomUUID(),
+      description : 'this is task 1'
     },
     {
       title: "task2",
       status: "inProgress",
-      id : crypto.randomUUID()
+      id : crypto.randomUUID() ,
+      description : 'this is task 2'
     },
     {
       title: "task3",
       status: "Done",
-      id : crypto.randomUUID()
+      id : crypto.randomUUID() ,
+      description : 'this is task 3'
     },
     {
       title: "task4",
       status: "pending",
-      id : crypto.randomUUID()
+      id : crypto.randomUUID() ,
+      description : 'this is task 4'
     },
     {
       title: "task7",
       status: "Done",
-      id : crypto.randomUUID()
+      id : crypto.randomUUID() ,
+      description : 'this is task 7'
     },
     {
       title: "task9",
       status: "Done",
-      id : crypto.randomUUID()
+      id : crypto.randomUUID() ,
+      description : 'this is task 9'
     },
   ]);
 
   const [close, setclose] = useState(false);
   const [taskTilte, setTitle] = useState("");
   const [taskId, setTaskId] = useState("");
+  const [descriptionTask, setDescription] = useState("");
 
   //this function will colse/open and set the TaskDetailsModal-Component 
 const handleClose = (t: taskType): void => {
   close ? setclose(false) : setclose(true);
 
   setTitle(t.title);
-  setTaskId(t.id)
+  setTaskId(t.id) ;
+  setDescription(t.description)
   console.log(t);
 };
 // save previos task and add another task
   const AddTask = (title: string, status: string ) => {
-    setTask((prev) => [...prev, { title, status , id:crypto.randomUUID() }]);
+    setTask((prev) => [...prev, { title, status , id:crypto.randomUUID() , description : '' }]);
   };
   //Delete task
   const deleteTask = (taskId : string) =>{
      // a new Array that does not have that id
   const updatedTasks = tasks.filter(task => task.id !== taskId);
   setTask(updatedTasks); // update state
-    setclose(false)
+    setclose(false) ;
   }
 //Drag & Drop 
    const handleDragEnd = ( event ) => {
@@ -125,11 +133,25 @@ const handleClose = (t: taskType): void => {
     console.log(`تسک ${source.id} به ستون ${target.id} منتقل شد`);
   };
   return (
- <DragDropProvider onDragEnd={handleDragEnd}>
+ <DragDropProvider onDragEnd={handleDragEnd}     
+  sensors={(defaultSensors) => [
+        // سنسورهای پیش‌فرض رو نگه میداریم
+        ...defaultSensors.filter(sensor => sensor !== PointerSensor),
+        // PointerSensor رو با تنظیمات جدید جایگزین می‌کنیم
+        PointerSensor.configure({
+          activationConstraints: [
+            // فعال‌سازی بعد از ۳۰۰ میلی‌ثانیه نگه‌داری با ۵ پیکسل تحمل
+            new PointerActivationConstraints.Delay({
+              value: 300,
+              tolerance: 5,
+            }),
+          ],
+        }),
+      ]}>
           <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
       {close && (
         <div className="flex justify-center z-10">
-          <TaskDetailsModal funcClose={handleClose} title={taskTilte} taskId={taskId} onDeleteTask={deleteTask}/>
+          <TaskDetailsModal funcClose={handleClose} title={taskTilte} taskId={taskId} onDeleteTask={deleteTask} description={descriptionTask} setDescription={setDescription}/>
         </div>
       )}
 

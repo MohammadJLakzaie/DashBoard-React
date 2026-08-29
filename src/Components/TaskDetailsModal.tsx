@@ -3,7 +3,7 @@ import type {TaskDetailsModalProps} from "../Types/Types"
 
 
 
-export default function TaskDetailsModal ({funcClose , title , taskId , onDeleteTask} : TaskDetailsModalProps  ) {
+export default function TaskDetailsModal ({funcClose , title , taskId , onDeleteTask , description , setDescription} : TaskDetailsModalProps  ) {
     return(
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20  p-4">
@@ -25,7 +25,7 @@ export default function TaskDetailsModal ({funcClose , title , taskId , onDelete
              : توضیحات
             </h3>
 
-           <textarea  placeholder="تسک خود را اینجا شرح دهید" className="block w-full h-48 px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"/>
+           <textarea  value={description} onChange={(event) =>  { setDescription({ description : event.target.value})  }} placeholder="تسک خود را اینجا شرح دهید" className="block w-full h-48 px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"/>
             
           </div>
         </div>

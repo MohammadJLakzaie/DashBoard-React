@@ -90,6 +90,16 @@ const handleClose = (t: taskType): void => {
   setTask(updatedTasks); // update state
     setclose(false) ;
   }
+  // Edit Task
+const handleUpdateTask = (taskId: string, newDescription: string) => {
+  setTask(prevTasks =>
+    prevTasks.map(task =>
+      task.id === taskId ? { ...task, description: newDescription } : task
+    )
+  );
+  setclose(false) 
+};
+
 //Drag & Drop 
    const handleDragEnd = ( event ) => {
     // ۱. اطلاعات مبدأ و مقصد رو از event استخراج کن
@@ -151,7 +161,7 @@ const handleClose = (t: taskType): void => {
           <div className="overflow-x-auto p-4 h-[calc(100vh-navbarHeight)] ">
       {close && (
         <div className="flex justify-center z-10">
-          <TaskDetailsModal funcClose={handleClose} title={taskTilte} taskId={taskId} onDeleteTask={deleteTask} description={descriptionTask} setDescription={setDescription}/>
+          <TaskDetailsModal funcClose={handleClose} title={taskTilte} taskId={taskId} onDeleteTask={deleteTask} description={descriptionTask} setDescription={setDescription} editCard={handleUpdateTask}/>
         </div>
       )}
 

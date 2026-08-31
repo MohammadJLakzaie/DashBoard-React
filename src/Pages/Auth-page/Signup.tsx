@@ -3,6 +3,9 @@ import Inputs from '../../Components/Inputs'
 import { useNavigate } from "react-router-dom";
 export default function Signup() {
  const navigate = useNavigate();
+
+
+ 
     return(
             <div className="w-full max-w-md bg-white/75 rounded-2xl lg:mx-60 shadow-card overflow-hidden transition-all duration-300 hover:shadow-2xl">
           <div className="px-4 py-6 sm:px-8 sm:py-10">

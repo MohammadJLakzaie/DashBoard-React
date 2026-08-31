@@ -28,6 +28,7 @@ export type TaskDetailsModalProps = {
   taskId : string ; 
   description : string ; 
   setDescription : Function ; 
+  editCard : Function
 }
 export type NavItemTypes = {
   emoji : string ;

@@ -1,9 +1,12 @@
 import Buttons from "./Buttons" ;
 import type {TaskDetailsModalProps} from "../Types/Types"
+import { useState } from "react";
 
 
 
-export default function TaskDetailsModal ({funcClose , title , taskId , onDeleteTask , description , setDescription} : TaskDetailsModalProps  ) {
+export default function TaskDetailsModal ({funcClose , title , taskId , onDeleteTask , description , setDescription , editCard} : TaskDetailsModalProps  ) {
+
+  const [active , setActive] = useState(true)
     return(
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20  p-4">
@@ -25,7 +28,7 @@ export default function TaskDetailsModal ({funcClose , title , taskId , onDelete
              : توضیحات
             </h3>
 
-           <textarea  value={description} onChange={(event) =>  { setDescription({ description : event.target.value})  }} placeholder="تسک خود را اینجا شرح دهید" className="block w-full h-48 px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"/>
+           <textarea  value={description} onChange={(event) =>  { setDescription(event.target.value) , setActive(false) }} placeholder="تسک خود را اینجا شرح دهید" className="block w-full h-48 px-4 py-3 text-gray-900 border border-gray-300 rounded-xl bg-gray-50/50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-smooth text-right"/>
             
           </div>
         </div>
@@ -40,8 +43,10 @@ export default function TaskDetailsModal ({funcClose , title , taskId , onDelete
             حذف کارت
           </button>
           <button
+          onClick={ () => {editCard(taskId ,description )} }
+          disabled={active}
             type="button"
-            className="w-full sm:w-auto rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+            className={`w-full sm:w-auto rounded-md ${!active ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-600 hover:bg-gray-700" } px-4 py-2 text-sm font-medium text-white  transition-colors`}
           >
             ویرایش
           </button>

@@ -34,10 +34,10 @@ Current features:
 * Responsive Layout
 *  Drag & Drop
 * Move Tasks Between Columns
+* Edit Tasks
 
 Currently in development:
 
-* Edit Tasks
 * Task Persistence
 
 ### 👤 Profile

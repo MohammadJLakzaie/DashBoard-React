@@ -66,7 +66,6 @@ const updateUser = async (e: React.SubmitEvent) => {
         <div className="flex gap-3 border-t border-slate-200 px-6 py-4">
            <Buttons
             name="ذخیره تغییرات"
-            // onClick={() => {updateUser()}}
             width="w-full"
             color="bg-indigo-600 py-3 text-white hover:bg-indigo-700"
             type="submit"

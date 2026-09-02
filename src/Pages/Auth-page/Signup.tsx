@@ -62,7 +62,7 @@ export default function Signup() {
                    />
               </div>
             {/* button from Components*/}
-              <Buttons onClick={() => navigate("/") } name="ثبت نام کنید"  width='w-full' color='text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
+              <Buttons type="submit" onClick={() => navigate("/") } name="ثبت نام کنید"  width='w-full' color='text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500' />
             </form>
           </div>
         </div>

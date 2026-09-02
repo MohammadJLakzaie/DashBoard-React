@@ -152,7 +152,7 @@ const handleUpdateTask = (taskId: string, newDescription: string) => {
           activationConstraints: [
             // فعال‌سازی بعد از ۳۰۰ میلی‌ثانیه نگه‌داری با ۵ پیکسل تحمل
             new PointerActivationConstraints.Delay({
-              value: 300,
+              value: 200,
               tolerance: 5,
             }),
           ],

@@ -22,7 +22,7 @@ export type TaskCardProps = {
   
 };
 export type TaskDetailsModalProps = {
-  funcClose: Function ; 
+  funcClose: () => void ; 
   title : string ; 
   onDeleteTask : Function ;
   taskId : string ; 
@@ -36,7 +36,27 @@ export type NavItemTypes = {
   active?: boolean ;
   muted?: boolean 
 }
-
+ export type User = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  birthDate: string;
+  age: number;
+  
+}
+export type UserTypes = {
+  firstName?: string ; 
+  lastName ?: string ; 
+  age ?: string ;
+  birthDate ?: string ;
+  email ?: string ; 
+  image?: string;
+}
+export type EditProfileModalProps ={
+  formData : UserTypes | null ; 
+  funcClose : () => void ; 
+  setFormData : (e : UserTypes) => void ; 
+}
 
 export type sectionLabel ={
   children : string ; 

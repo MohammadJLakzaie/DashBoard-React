@@ -3,18 +3,10 @@ import ErrorSuccess from "../../Components/ErrorSuccess";
 import Loader from "../../Components/Loader";
 import Buttons from "../../Components/Buttons";
 import EditProfileModal from "../../Components/EditProfileModal";
-
-type User = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string;
-  age: number;
-  image: string;
-};
+import type {UserTypes} from "../../Types/Types"
 
 export default function Profile() {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserTypes | null>(null);
   const [error, setError] = useState(false);
   const [Loading, setLoading] = useState(true);
   const [isEditProfile, setIsEditProfile] = useState(false);
@@ -28,10 +20,19 @@ export default function Profile() {
           throw new Error("Failed to fetch user");
         }
 
-        const data: User = await response.json();
+        const data = await response.json();
 
-        setUser(data);
+        const testobj = {
+          firstName : data.firstName ,
+          lastName : data.lastName ,
+          age : data.age , 
+          email : data.email ,
+          birthDate : data.birthDate
+        }
+
+        setUser(testobj);
         console.log(data);
+        console.log(testobj);
       } catch (error) {
         console.log(`this is the Error ${error}`);
         setError(true);

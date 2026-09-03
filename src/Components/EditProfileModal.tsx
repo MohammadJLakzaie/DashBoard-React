@@ -2,8 +2,9 @@ import { useState } from "react";
 import Inputs from "./Inputs";
 import Buttons from "./Buttons";
 import ErrorSuccess from "./ErrorSuccess";
+import type {EditProfileModalProps} from "../Types/Types"
 
-export default function EditProfileModal({funcClose , formData  , setFormData } ) {
+export default function EditProfileModal({funcClose , formData  , setFormData } : EditProfileModalProps ) {
 const [updateError, setUpdateError] = useState(false);
 // const [updateSuccess, setUpdateSuccess] = useState(false);
 
@@ -55,11 +56,11 @@ const updateUser = async (e: React.SubmitEvent) => {
         {updateError && (<ErrorSuccess message="عملیات ناموفق بود" color="bg-red-50 border border-red-300 text-red-700"/>)}
        <form action="#" onSubmit={updateUser}>
  <div className="space-y-5 px-6 py-6">
-          <Inputs type="text" label="نام" value={formData.firstName}  onChange={(event) => { setFormData({...formData , firstName: event.target.value})  }}/>
-          <Inputs type="text" label="نام خانوادگی" value={formData.lastName} onChange={(event) => { setFormData({...formData , lastName: event.target.value})  }} />
-          <Inputs type="text" label="سن" value={formData.age} onChange={(event) => { setFormData({...formData , age: event.target.value})  }} />
-          <Inputs type="text" label="تاریخ تولد" value={formData.birthDate} onChange={(event) => { setFormData({...formData , birthDate: event.target.value})  }}/>
-          <Inputs type="email" label="ایمیل" value={formData.email} onChange={(event) => { setFormData({...formData , email: event.target.value})  }}/>
+          <Inputs type="text" label="نام" value={formData?.firstName}  onChange={(event) => { setFormData({...formData , firstName: event.target.value})  }}/>
+          <Inputs type="text" label="نام خانوادگی" value={formData?.lastName} onChange={(event) => { setFormData({...formData , lastName: event.target.value})  }} />
+          <Inputs type="text" label="سن" value={formData?.age} onChange={(event) => { setFormData({...formData , age: event.target.value})  }} />
+          <Inputs type="text" label="تاریخ تولد" value={formData?.birthDate} onChange={(event) => { setFormData({...formData , birthDate: event.target.value})  }}/>
+          <Inputs type="email" label="ایمیل" value={formData?.email} onChange={(event) => { setFormData({...formData , email: event.target.value})  }}/>
         </div>
 
         {/* Footer */}

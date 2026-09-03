@@ -27,12 +27,11 @@ export default function Profile() {
           lastName : data.lastName ,
           age : data.age , 
           email : data.email ,
-          birthDate : data.birthDate
+          birthDate : data.birthDate ,
+          image : data.image
         }
 
         setUser(testobj);
-        console.log(data);
-        console.log(testobj);
       } catch (error) {
         console.log(`this is the Error ${error}`);
         setError(true);

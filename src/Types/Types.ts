@@ -36,14 +36,14 @@ export type NavItemTypes = {
   active?: boolean ;
   muted?: boolean 
 }
- export type User = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string;
-  age: number;
+//  export type User = {
+//   firstName: string;
+//   lastName: string;
+//   email: string;
+//   birthDate: string;
+//   age: number;
   
-}
+// }
 export type UserTypes = {
   firstName?: string ; 
   lastName ?: string ; 

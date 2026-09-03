@@ -32,7 +32,6 @@ const updateUser = async (e: React.SubmitEvent) => {
     console.log(updatedUser);
     funcClose()
   } catch (error) {
-    console.log(error);
     setUpdateError(true)
   }
 };

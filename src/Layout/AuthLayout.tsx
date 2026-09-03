@@ -1,17 +1,6 @@
 
-// import { useNavigate } from 'react-router-dom';
 import { Outlet } from "react-router-dom"
 export default function AuthLayout() {
-  // <Routes>
-  //   <Route path="/A" element={<Home />} />
-  // </Routes>
-//  const navigate = useNavigate();
-
-  // const handleSignIn = () => {
-    
-  //   navigate('/Home');
-  // };
-
   return (
     <div
       className="min-h-screen   bg-no-repeat"

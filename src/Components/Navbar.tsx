@@ -32,24 +32,6 @@ export default function Navbar() {
           <span className="text-white font-semibold text-sm">Trello</span>
         </div>
 
-        {/* Desktop Navigation - hidden on mobile */}
-        <ul className="hidden sm:flex gap-1">
-          {NAV_ITEMS.map((item) => (
-            <li key={item}>
-              <button
-                onClick={() => handleClick(item)}
-                className={`px-3 py-2 text-sm rounded transition-colors duration-150 ${
-                  active === item
-                    ? "text-white font-bold"
-                    : "text-indigo-200 hover:text-white"
-                }`}
-              >
-                {item}
-              </button>
-            </li>
-          ))}
-        </ul>
-
         {/* Right side icons + hamburger */}
         <div className="flex items-center gap-1">
           {/* Simple icon buttons */}

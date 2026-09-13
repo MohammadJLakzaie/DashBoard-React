@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import ErrorSuccess from "../../Components/ErrorSuccess";
 import Loader from "../../Components/Loader";
-import Buttons from "../../Components/Buttons.tsx";
+import Buttons from "../../Components/buttons.tsx";
 import EditProfileModal from "../../Components/EditProfileModal";
-import type {UserTypes} from "../../Types/Types"
+import type { UserTypes } from "../../Types/Types";
 
 export default function Profile() {
   const [user, setUser] = useState<UserTypes | null>(null);
@@ -23,13 +23,13 @@ export default function Profile() {
         const data = await response.json();
 
         const testobj = {
-          firstName : data.firstName ,
-          lastName : data.lastName ,
-          age : data.age , 
-          email : data.email ,
-          birthDate : data.birthDate ,
-          image : data.image
-        }
+          firstName: data.firstName,
+          lastName: data.lastName,
+          age: data.age,
+          email: data.email,
+          birthDate: data.birthDate,
+          image: data.image,
+        };
 
         setUser(testobj);
       } catch (error) {

@@ -1,18 +1,16 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
-import Buttons from "./Buttons.tsx";
+import Buttons from "./buttons.tsx";
 import type { taskType } from "../Types/Types";
 import type { taskColumnProps } from "../Types/Types";
-import { useDroppable } from '@dnd-kit/react';
-
-
+import { useDroppable } from "@dnd-kit/react";
 
 export default function TaskColumn({
   name,
   column,
   filteredTasks,
   onAddTask,
-  funcOpen
+  funcOpen,
 }: taskColumnProps) {
   const [open, setOpen] = useState(false);
   const handleAddCard = (open: boolean): void => {
@@ -27,25 +25,25 @@ export default function TaskColumn({
 
   const write = (): void => {
     if (note.trim() === "") return; // جلوگیری از اضافه کردن تسک خالی
-    onAddTask(note, column );
+    onAddTask(note, column);
     setNote(""); // پاک کردن اینپوت بعد از ثبت
     setOpen(false); // بستن فرم
   };
   //make column drogable
-   const { ref  , isDropTarget  } = useDroppable({ id: column }); //column already has .status 
+  const { ref, isDropTarget } = useDroppable({ id: column }); //column already has .status
 
   return (
     <>
-      <section 
-      ref={ref}
+      <section
+        ref={ref}
         // key={column.id}
-        className={`flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full max-h-[80vh] overflow-y-auto task-column ${isDropTarget ? 'drop-target-active' : ''}`}
-       style={{
-        backgroundColor: isDropTarget  ? '#e0f0ff' : 'transparent',
-        border: isDropTarget  ? '2px dashed #4a90d9' : '',
-        transition: 'all 0.2s ease'
-      }}
-     >
+        className={`flex flex-col w-65 bg-slate-100 rounded-xl border border-slate-200 h-full max-h-[80vh] overflow-y-auto task-column ${isDropTarget ? "drop-target-active" : ""}`}
+        style={{
+          backgroundColor: isDropTarget ? "#e0f0ff" : "transparent",
+          border: isDropTarget ? "2px dashed #4a90d9" : "",
+          transition: "all 0.2s ease",
+        }}
+      >
         {/* Header */}
         <div className="flex items-center justify-center p-4 border-b border-slate-200">
           <span className="font-semibold  text-slate-800">{name}</span>
@@ -97,7 +95,7 @@ focus:border-indigo-500
 focus:ring-2
 focus:ring-indigo-100"
             />
-            
+
             <div className="flex flex-row gap-2">
               <Buttons
                 name={"تایید"}

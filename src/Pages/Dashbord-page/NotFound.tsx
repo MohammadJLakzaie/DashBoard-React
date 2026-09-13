@@ -1,6 +1,6 @@
 // src/Pages/Dashbord-page/NotFound.tsx
 import { useNavigate } from "react-router-dom";
-import Buttons from "../../Components/Buttons.tsx";
+import Buttons from "../../Components/buttons.tsx";
 
 export default function NotFound() {
   const navigate = useNavigate();

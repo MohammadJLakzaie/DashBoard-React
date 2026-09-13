@@ -1,4 +1,4 @@
-import Buttons from "../../Components/Buttons.tsx";
+import Buttons from "../../Components/buttons.tsx";
 import Inputs from "../../Components/Inputs";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

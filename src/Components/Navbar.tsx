@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Buttons from "./Buttons.tsx"
+import Buttons from "./buttons.tsx";
 import { NavLink } from "react-router-dom";
 const NAV_ITEMS = ["داشبورد", "جریان داده", "تحلیل ها", "کاربران"];
 
@@ -8,17 +8,16 @@ export default function Navbar() {
   const [active, setActive] = useState("Dashboard");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = (item : string) => {
-    setActive(item );
+  const handleClick = (item: string) => {
+    setActive(item);
     setMenuOpen(false); // close menu after click on mobile
   };
 
   const navigate = useNavigate();
   const HandleExit = () => {
-    navigate('/') ;
-    localStorage.setItem( "isLoggedIn", "false");
-  }
-
+    navigate("/");
+    localStorage.setItem("isLoggedIn", "false");
+  };
 
   return (
     <nav className="bg-indigo-600 shadow-lg w-full">
@@ -41,17 +40,24 @@ export default function Navbar() {
           <button className="p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
             📤
           </button>
-          <Buttons name={'خروج'} width={'shrink-0'} onClick={() => HandleExit()} color={'mb-2 border-red-200 bg-indigo-600 px-4 py-2 text-sm font-medium text-black-600 hover:bg-red-700 '}/>
+          <Buttons
+            name={"خروج"}
+            width={"shrink-0"}
+            onClick={() => HandleExit()}
+            color={
+              "mb-2 border-red-200 bg-indigo-600 px-4 py-2 text-sm font-medium text-black-600 hover:bg-red-700 "
+            }
+          />
 
           {/* Hamburger button - visible only on mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="sm:hidden p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10">
+            className="sm:hidden p-2 rounded text-indigo-200 hover:text-white hover:bg-white/10"
+          >
             {/* Simple hamburger icon (☰) or X when open */}
             {menuOpen ? "✖" : "☰"}
-          </button >
+          </button>
           {/* this button will open sidebar */}
-          
         </div>
       </div>
 
@@ -68,33 +74,32 @@ export default function Navbar() {
                       ? "text-white font-bold bg-white/10"
                       : "text-indigo-200 hover:text-white hover:bg-white/10"
                   }`}
-                    >
+                >
                   {item}
                 </button>
               </li>
-              
             ))}
           </ul>
           <div>
-                    <ul className="flex flex-col px-4 py-2 gap-1">
-          <li>
-            <NavLink
-              to="home"
-              className={`flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-indigo-200 `}
-            >
-              خانه
-            </NavLink>
-          </li>
+            <ul className="flex flex-col px-4 py-2 gap-1">
+              <li>
+                <NavLink
+                  to="home"
+                  className={`flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-indigo-200 `}
+                >
+                  خانه
+                </NavLink>
+              </li>
 
-          <li>
-            <NavLink
-              to="/app/profile"
-              className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-indigo-200"
-            >
-              پروفایل
-            </NavLink>
-          </li>
-        </ul>
+              <li>
+                <NavLink
+                  to="/app/profile"
+                  className="flex items-center justify-start gap-2.5 px-3 py-1.5 rounded-lg text-sm transition-colors text-indigo-200"
+                >
+                  پروفایل
+                </NavLink>
+              </li>
+            </ul>
           </div>
         </div>
       )}

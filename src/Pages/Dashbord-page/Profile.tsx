@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ErrorSuccess from "../../Components/ErrorSuccess";
 import Loader from "../../Components/Loader";
-import Buttons from "../../Components/Buttons";
+import Buttons from "../../Components/Buttons.tsx";
 import EditProfileModal from "../../Components/EditProfileModal";
 import type {UserTypes} from "../../Types/Types"
 

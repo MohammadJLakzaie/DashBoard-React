@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
-import Buttons from "./Buttons";
+import Buttons from "./Buttons.tsx";
 import type { taskType } from "../Types/Types";
 import type { taskColumnProps } from "../Types/Types";
 import { useDroppable } from '@dnd-kit/react';

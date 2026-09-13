@@ -1,4 +1,4 @@
-import Buttons from "./Buttons" ;
+import Buttons from "./Buttons.tsx" ;
 import type {TaskDetailsModalProps} from "../Types/Types"
 import { useState } from "react";
 

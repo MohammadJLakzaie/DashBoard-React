@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Inputs from "./Inputs";
-import Buttons from "./Buttons";
+import Buttons from "./Buttons.tsx";
 import ErrorSuccess from "./ErrorSuccess";
 import type {EditProfileModalProps} from "../Types/Types"
 

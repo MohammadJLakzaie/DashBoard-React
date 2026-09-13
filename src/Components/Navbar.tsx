@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Buttons from "./Buttons"
+import Buttons from "./Buttons.tsx"
 import { NavLink } from "react-router-dom";
 const NAV_ITEMS = ["داشبورد", "جریان داده", "تحلیل ها", "کاربران"];
 

@@ -1,3 +1,4 @@
+import authBackground from "../assets/Auth/Frame-(3).svg";
 
 import { Outlet } from "react-router-dom" ;
 export default function AuthLayout() {
@@ -5,7 +6,7 @@ export default function AuthLayout() {
     <div
       className="min-h-screen   bg-no-repeat"
       style={{
-        backgroundImage: "url('/src/assets/Auth/Frame-(3).svg')", 
+        backgroundImage: `url("${authBackground}")`, 
        
       }}
     >

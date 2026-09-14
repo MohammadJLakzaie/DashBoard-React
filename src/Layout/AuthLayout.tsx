@@ -1,11 +1,11 @@
 
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom" ;
 export default function AuthLayout() {
   return (
     <div
       className="min-h-screen   bg-no-repeat"
       style={{
-        backgroundImage: "url('/src/assets/Auth/Frame (3).svg')", 
+        backgroundImage: "url('/src/assets/Auth/Frame-(3).svg')", 
        
       }}
     >
